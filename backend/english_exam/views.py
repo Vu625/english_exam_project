@@ -7,14 +7,22 @@ from django.conf import settings
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from openai import OpenAI # Sử dụng thư viện OpenAI để kết nối LM Studio
+import google.generativeai as genai
+# from openai import OpenAI # Sử dụng thư viện OpenAI để kết nối LM Studio
 
         # Khởi tạo OpenAI client để kết nối tới LM Studio
         # LM Studio mặc định chạy trên localhost:1234
-lm_studio_client = OpenAI(
-            base_url="http://192.168.1.22:1234/v1", # Đây là endpoint của LM Studio
-api_key="lm-studio" # API Key không quan trọng với LM Studio, có thể đặt bất kỳ
-        )
+# lm_studio_client = OpenAI(
+#             base_url="http://192.168.1.22:1234/v1", # Đây là endpoint của LM Studio
+# api_key="lm-studio" # API Key không quan trọng với LM Studio, có thể đặt bất kỳ
+#         )
+
+GEMINI_API_KEY = "AIzaSyC1pwsa7LbW0CBO4MfiV8E11g69plkEVZs" # <--- THAY THẾ DÒNG NÀY !!!
+genai.configure(api_key=GEMINI_API_KEY)
+
+# Khởi tạo mô hình Gemini
+# Sử dụng 'gemini-pro' cho các tác vụ văn bản
+model = genai.GenerativeModel('gemini-2.5-flash') # <-- THÊM 'models/' vào đây
 
 class ExamQuestionsView(APIView):
             def get(self, request):
@@ -68,8 +76,7 @@ class SubmitExamView(APIView):
                             "question_text": q_data['Question'],
                             "user_answer": user_ans_value,
                             "correct_answer_value": actual_correct_value,
-                            "explanation": q_data['Explain'],
-"grammar": q_data['Grammar'],
+                            "explanation": q_data['Explain'],"grammar": q_data['Grammar'],
                         })
                 
                 total_questions = len(exam_data)
@@ -81,40 +88,6 @@ class SubmitExamView(APIView):
                 }
                 return Response(response_data)
 
-# class GetAdviceView(APIView):
-#             def post(self, request):
-#                 incorrect_details_from_frontend = request.data.get('incorrect_details', [])
-                
-#                 if not incorrect_details_from_frontend:
-#                     return Response({"advice": "Bạn đã làm rất tốt! Không có điểm ngữ pháp nào cần củng cố."})
-
-#                 grammar_points = []
-#                 for detail in incorrect_details_from_frontend:
-#                     if detail.get('grammar'):
-#                         grammar_points.append(f"- Chủ điểm: {detail['grammar']}\n  Giải thích: {detail['explanation']}")
-#                     else:
-#                         grammar_points.append(f"- Câu hỏi: {detail['question_text']}\n  Giải thích: {detail['explanation']}")
-
-#                 combined_info = "\n\n".join(grammar_points)
-
-#                 prompt = f"""Tôi đã làm một bài thi tiếng Anh và mắc lỗi trong các câu sau. Dưới đây là các chủ điểm ngữ pháp và giải thích cho từng câu sai:\n\n{combined_info}\n\nDựa vào những thông tin này, hãy tổng hợp và đưa ra một lời khuyên cụ thể, chi tiết về các điểm ngữ pháp hoặc kiến thức mà tôi cần củng cố để cải thiện trình độ tiếng Anh của mình. Hãy đưa ra các ví dụ nếu cần và đề xuất cách học hiệu quả. Chỉ tập trung vào các điểm ngữ pháp được liệt kê. Cung cấp lời khuyên bằng tiếng Việt."""
-
-#                 try:
-#                     # Gọi API của LM Studio
-#                     completion = lm_studio_client.chat.completions.create(
-#                         model="mistralai/mistral-7b-instruct-v0.3", # Tên mô hình trong LM Studio thường là 'local-model' hoặc tên bạn đặt
-#                         messages=[
-#                             {"role": "system", "content": "Bạn là một gia sư tiếng Anh chuyên nghiệp và thân thiện, có khả năng phân tích lỗi ngữ pháp và đưa ra lời khuyên học tập hiệu quả."},
-#                             {"role": "user", "content": prompt}
-#                         ],
-#                         temperature=0.7,
-#                         max_tokens=500
-#                     )
-#                     advice = completion.choices[0].message.content
-#                     return Response({"advice": advice})
-#                 except Exception as e:
-#                     print(f"Lỗi khi gọi LM Studio API: {e}")
-#                     return Response({"advice": f"Đã xảy ra lỗi khi tạo lời khuyên từ AI: {e}. Vui lòng kiểm tra LM Studio server."}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 class GetAdviceView(APIView):
     def post(self, request):
         incorrect_details_from_frontend = request.data.get('incorrect_details', [])
@@ -139,16 +112,17 @@ class GetAdviceView(APIView):
 
         try:
             # Gọi API của LM Studio, chỉ với vai trò user
-            completion = lm_studio_client.chat.completions.create(
-                model="mistralai/Mistral-7B-Instruct-v0.2", # Đảm bảo tên model chính xác
-                messages=[
-                    {"role": "user", "content": full_prompt} # CHỈ CÓ VAI TRÒ "user"
-                ],
-                temperature=0.7,
-                max_tokens=500
-            )
-            advice = completion.choices[0].message.content
+            # completion = lm_studio_client.chat.completions.create(
+            #     model="mistralai/Mistral-7B-Instruct-v0.2", # Đảm bảo tên model chính xác
+            #     messages=[
+            #         {"role": "user", "content": full_prompt} # CHỈ CÓ VAI TRÒ "user"
+            #     ],
+            #     temperature=0.7,
+            #     max_tokens=500
+            # )
+            response = model.generate_content(full_prompt)
+            advice = response.text
             return Response({"advice": advice})
         except Exception as e:
-            print(f"Lỗi khi gọi LM Studio API: {e}")
-            return Response({"advice": f"Đã xảy ra lỗi khi tạo lời khuyên từ AI: {e}. Vui lòng kiểm tra LM Studio server."}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            print(f"Lỗi khi gọi Google Gemini API: {e}")
+            return Response({"advice": f"Đã xảy ra lỗi khi tạo lời khuyên từ AI: {e}. Vui lòng kiểm tra Lỗi khi gọi Google Gemini API server."}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

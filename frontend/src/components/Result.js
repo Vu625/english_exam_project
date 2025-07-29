@@ -15,7 +15,7 @@ import React, { useState } from 'react';
                     });
 setAdvice(response.data.advice);
                 } catch (err) {
-                    setAdviceError("Không thể lấy lời khuyên từ AI. Vui lòng kiểm tra LM Studio server.");
+                    setAdviceError("Không thể lấy lời khuyên từ AI. Vui lòng kiểm tra API Google.");
                     console.error("Error fetching advice:", err);
                     setAdvice("Đã xảy ra lỗi khi tạo lời khuyên. Vui lòng thử lại sau hoặc kiểm tra kết nối với LLM.");
                 } finally {
