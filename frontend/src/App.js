@@ -41,7 +41,7 @@ function App() {
             return (
                 <div className="App">
                     <header className="App-header">
-                        <h1>Ứng dụng luyện thi tiếng Anh</h1>
+                        <h1>Web luyện thi tiếng anh THPT</h1>
                     </header>
                     <main>
                         {submitError && <div style={{ color: 'red', textAlign: 'center' }}>{submitError}</div>}
