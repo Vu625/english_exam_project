@@ -126,3 +126,25 @@ class GetAdviceView(APIView):
         except Exception as e:
             print(f"Lỗi khi gọi Google Gemini API: {e}")
             return Response({"advice": f"Đã xảy ra lỗi khi tạo lời khuyên từ AI: {e}. Vui lòng kiểm tra Lỗi khi gọi Google Gemini API server."}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+class ExerciseQuestionsView(APIView):
+    def get(self, request, topic):
+        # Xây dựng đường dẫn đến thư mục 'cac_thi' trong static
+        base_data_path = os.path.join(settings.BASE_DIR, 'english_exam', 'static', 'cac_thi')
+
+        # Xây dựng tên file dựa trên topic (ví dụ: hien_tai -> hien_tai.json)
+        file_name = f"{topic}.json"
+        file_path = os.path.join(base_data_path, file_name)
+
+        if not os.path.exists(file_path):
+            return Response({'error': f'Topic "{topic}" not found or file does not exist.'}, status=status.HTTP_404_NOT_FOUND)
+
+        try:
+            with open(file_path, 'r', encoding='utf-8') as f:
+                questions = json.load(f)
+            return Response(questions)
+        except Exception as e:
+            return Response({'error': f'Failed to load questions for topic "{topic}": {str(e)}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+# (Nếu bạn có thêm các hàm helper nào khác thì giữ lại)

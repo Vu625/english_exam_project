@@ -1,0 +1,112 @@
+[
+  {
+    "ID": 1,
+    "Question": "She usually _______ to school by bike, but today she _______ by bus.",
+    "A": "goes / is going",
+    "B": "go / goes",
+    "C": "is going / goes",
+    "D": "goes / goes",
+    "Answer": "A",
+    "Explain": "'Usually' chỉ thói quen (hiện tại đơn) => 'goes'; 'today' chỉ hiện tại tiếp diễn => 'is going'.",
+    "Grammar": "Thì hiện tại đơn và hiện tại tiếp diễn"
+  },
+  {
+    "ID": 2,
+    "Question": "I _______ English for 5 years.",
+    "A": "have been learning",
+    "B": "learn",
+    "C": "am learning",
+    "D": "learned",
+    "Answer": "A",
+    "Explain": "Dấu hiệu 'for 5 years' => hiện tại hoàn thành tiếp diễn, nhấn mạnh quá trình.",
+    "Grammar": "Thì hiện tại hoàn thành tiếp diễn"
+  },
+  {
+    "ID": 3,
+    "Question": "Look! The children _______ in the garden.",
+    "A": "play",
+    "B": "are playing",
+    "C": "have played",
+    "D": "played",
+    "Answer": "B",
+    "Explain": "'Look!' là dấu hiệu rõ ràng của hiện tại tiếp diễn.",
+    "Grammar": "Thì hiện tại tiếp diễn"
+  },
+  {
+    "ID": 4,
+    "Question": "We _______ in this city since 2010.",
+    "A": "live",
+    "B": "are living",
+    "C": "have lived",
+    "D": "lived",
+    "Answer": "C",
+    "Explain": "'Since 2010' chỉ thời điểm bắt đầu đến hiện tại => hiện tại hoàn thành.",
+    "Grammar": "Thì hiện tại hoàn thành"
+  },
+  {
+    "ID": 5,
+    "Question": "He rarely _______ late for school.",
+    "A": "is",
+    "B": "was",
+    "C": "has been",
+    "D": "being",
+    "Answer": "A",
+    "Explain": "'Rarely' là trạng từ tần suất => dùng hiện tại đơn.",
+    "Grammar": "Thì hiện tại đơn"
+  },
+  {
+    "ID": 6,
+    "Question": "They _______ to the museum this month.",
+    "A": "go",
+    "B": "have gone",
+    "C": "are going",
+    "D": "went",
+    "Answer": "B",
+    "Explain": "'This month' là dấu hiệu của hiện tại hoàn thành.",
+    "Grammar": "Thì hiện tại hoàn thành"
+  },
+  {
+    "ID": 7,
+    "Question": "Listen! Someone _______ at the door.",
+    "A": "knocks",
+    "B": "is knocking",
+    "C": "has knocked",
+    "D": "knocked",
+    "Answer": "B",
+    "Explain": "'Listen!' => hiện tại tiếp diễn.",
+    "Grammar": "Thì hiện tại tiếp diễn"
+  },
+  {
+    "ID": 8,
+    "Question": "My sister _______ breakfast at 7 a.m. every morning.",
+    "A": "has",
+    "B": "is having",
+    "C": "have had",
+    "D": "has had",
+    "Answer": "A",
+    "Explain": "Thói quen hằng ngày => hiện tại đơn.",
+    "Grammar": "Thì hiện tại đơn"
+  },
+  {
+    "ID": 9,
+    "Question": "I _______ this movie three times.",
+    "A": "see",
+    "B": "saw",
+    "C": "have seen",
+    "D": "am seeing",
+    "Answer": "C",
+    "Explain": "'Three times' => hành động lặp lại trong quá khứ đến hiện tại => hiện tại hoàn thành.",
+    "Grammar": "Thì hiện tại hoàn thành"
+  },
+  {
+    "ID": 10,
+    "Question": "She _______ very hard these days.",
+    "A": "works",
+    "B": "is working",
+    "C": "has worked",
+    "D": "worked",
+    "Answer": "B",
+    "Explain": "'These days' chỉ quá trình đang diễn ra => hiện tại tiếp diễn.",
+    "Grammar": "Thì hiện tại tiếp diễn"
+  }
+]

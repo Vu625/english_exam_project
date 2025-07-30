@@ -1,8 +1,10 @@
 from django.urls import path
-from .views import ExamQuestionsView, SubmitExamView, GetAdviceView
+from . import views
 
 urlpatterns = [
-        path('questions/', ExamQuestionsView.as_view(), name='exam_questions'),
-        path('submit/', SubmitExamView.as_view(), name='submit_exam'),
-        path('advice/', GetAdviceView.as_view(), name='get_advice'),
+    path('questions/', views.ExamQuestionsView.as_view(), name='questions'),
+    path('submit/', views.SubmitExamView.as_view(), name='submit'),
+    path('advice/', views.GetAdviceView.as_view(), name='advice'),
+    # Endpoint mới cho Exercise-Gram
+    path('exercises/<str:topic>/', views.ExerciseQuestionsView.as_view(), name='exercise_questions'),
 ]

@@ -1,0 +1,112 @@
+[
+  {
+    "ID": 1,
+    "Question": "When I arrived, they ______ dinner.",
+    "A": "had had",
+    "B": "have",
+    "C": "were having",
+    "D": "have had",
+    "Answer": "C",
+    "Explain": "Hành động đang diễn ra tại thời điểm quá khứ => quá khứ tiếp diễn.",
+    "Grammar": "Thì quá khứ tiếp diễn"
+  },
+  {
+    "ID": 2,
+    "Question": "She ______ to Paris last summer.",
+    "A": "goes",
+    "B": "went",
+    "C": "has gone",
+    "D": "was going",
+    "Answer": "B",
+    "Explain": "‘Last summer’ là dấu hiệu của quá khứ đơn.",
+    "Grammar": "Thì quá khứ đơn"
+  },
+  {
+    "ID": 3,
+    "Question": "I ______ the book before the teacher asked about it.",
+    "A": "read",
+    "B": "have read",
+    "C": "had read",
+    "D": "was reading",
+    "Answer": "C",
+    "Explain": "Hành động xảy ra trước 1 hành động quá khứ khác => quá khứ hoàn thành.",
+    "Grammar": "Thì quá khứ hoàn thành"
+  },
+  {
+    "ID": 4,
+    "Question": "While he ______ TV, I ______ my homework.",
+    "A": "watched / did",
+    "B": "was watching / was doing",
+    "C": "watched / was doing",
+    "D": "was watching / did",
+    "Answer": "B",
+    "Explain": "Hai hành động đang diễn ra song song trong quá khứ => quá khứ tiếp diễn.",
+    "Grammar": "Thì quá khứ tiếp diễn"
+  },
+  {
+    "ID": 5,
+    "Question": "They ______ in Hanoi for ten years before they moved.",
+    "A": "lived",
+    "B": "were living",
+    "C": "had lived",
+    "D": "have lived",
+    "Answer": "C",
+    "Explain": "Hành động kéo dài trước hành động quá khứ khác => quá khứ hoàn thành.",
+    "Grammar": "Thì quá khứ hoàn thành"
+  },
+  {
+    "ID": 6,
+    "Question": "I ______ my leg when I ______ football.",
+    "A": "broke / was playing",
+    "B": "was breaking / played",
+    "C": "had broken / was playing",
+    "D": "break / am playing",
+    "Answer": "A",
+    "Explain": "Hành động ngắn (broke) xen vào hành động dài (was playing) => quá khứ đơn + quá khứ tiếp diễn.",
+    "Grammar": "Thì quá khứ đơn & quá khứ tiếp diễn"
+  },
+  {
+    "ID": 7,
+    "Question": "By the time we got to the station, the train ______.",
+    "A": "left",
+    "B": "has left",
+    "C": "had left",
+    "D": "leaves",
+    "Answer": "C",
+    "Explain": "Hành động xảy ra trước 1 thời điểm quá khứ => quá khứ hoàn thành.",
+    "Grammar": "Thì quá khứ hoàn thành"
+  },
+  {
+    "ID": 8,
+    "Question": "He ______ in the army for two years during the war.",
+    "A": "served",
+    "B": "has served",
+    "C": "was serving",
+    "D": "had served",
+    "Answer": "A",
+    "Explain": "Khoảng thời gian rõ ràng trong quá khứ => quá khứ đơn.",
+    "Grammar": "Thì quá khứ đơn"
+  },
+  {
+    "ID": 9,
+    "Question": "When I saw her, she ______ a red dress.",
+    "A": "wore",
+    "B": "was wearing",
+    "C": "had worn",
+    "D": "wears",
+    "Answer": "B",
+    "Explain": "Miêu tả hành động đang xảy ra tại thời điểm quá khứ => quá khứ tiếp diễn.",
+    "Grammar": "Thì quá khứ tiếp diễn"
+  },
+  {
+    "ID": 10,
+    "Question": "He ______ his homework before dinner.",
+    "A": "has finished",
+    "B": "finished",
+    "C": "had finished",
+    "D": "was finishing",
+    "Answer": "C",
+    "Explain": "Hành động hoàn thành trước một thời điểm quá khứ => quá khứ hoàn thành.",
+    "Grammar": "Thì quá khứ hoàn thành"
+  }
+]
