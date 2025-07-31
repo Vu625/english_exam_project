@@ -7,4 +7,6 @@ urlpatterns = [
     path('advice/', views.GetAdviceView.as_view(), name='advice'),
     # Endpoint mới cho Exercise-Gram
     path('exercises/<str:topic>/', views.ExerciseQuestionsView.as_view(), name='exercise_questions'),
+        # Endpoint mới cho Exercise-Reading
+    path('reading-exercises/<str:topic>/', views.ReadingQuestionsView.as_view(), name='reading_questions'),
 ]

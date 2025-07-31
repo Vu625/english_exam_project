@@ -194,3 +194,27 @@ class ExerciseQuestionsView(APIView):
             # Log lỗi chi tiết để debug
             print(f"Lỗi khi đọc file JSON cho topic '{topic}': {e}")
             return Response({'error': f'Failed to load questions for topic "{topic}": {str(e)}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+class ReadingQuestionsView(APIView):
+    def get(self, request, topic):
+        # Trong trường hợp này, topic sẽ là 'doan-van'
+        # Đảm bảo tên file JSON của bạn là 'doan-van.json' (gạch ngang)
+
+        # Thay đổi base_data_path để trỏ đến thư mục 'reading'
+        base_data_path = os.path.join(settings.BASE_DIR, 'english_exam', 'static', 'reading')
+
+        file_name = f"{topic}.json" # Sẽ là "doan-van.json"
+        file_path = os.path.join(base_data_path, file_name)
+
+        print(f"Attempting to load reading file from: {file_path}") # Dòng debug
+
+        if not os.path.exists(file_path):
+            return Response({'error': f'Reading topic "{topic}" not found or file "{file_name}" does not exist at "{file_path}". Please check file name and path.'}, status=status.HTTP_404_NOT_FOUND)
+
+        try:
+            with open(file_path, 'r', encoding='utf-8') as f:
+                questions = json.load(f)
+            return Response(questions)
+        except Exception as e:
+            print(f"Lỗi khi đọc file JSON cho chủ đề đọc hiểu '{topic}': {e}")
+            return Response({'error': f'Failed to load reading questions for topic "{topic}": {str(e)}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

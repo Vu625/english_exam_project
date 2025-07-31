@@ -64,96 +64,6 @@ function Chatbot({ question, grammarTopic, onChatOpen }) {
     );
 }
 
-// Component Cửa sổ Chatbot (sẽ phát triển sau)
-// function ChatWindow({ isOpen, onClose, currentQuestion, grammarTopic }) {
-//     const [chatMessages, setChatMessages] = useState([]);
-//     const [isLoading, setIsLoading] = useState(false);
-
-//     const handleChatButtonClick = async (buttonType) => {
-//         let userMessage = '';
-//         let promptToSend = '';
-
-//         switch (buttonType) {
-//             case 'translate':
-//                 userMessage = 'Dịch câu hỏi này';
-//                 promptToSend = `Dịch câu tiếng Anh này sang tiếng Việt: "${currentQuestion.Question}"`;
-//                 break;
-//             case 'hint':
-//                 userMessage = 'Gợi ý cho tôi';
-//                 promptToSend = `Hãy đưa ra một gợi ý nhỏ để giải quyết câu hỏi ngữ pháp này mà không tiết lộ đáp án. Câu hỏi: "${currentQuestion.Question}". Các lựa chọn: A: "${currentQuestion.A}", B: "${currentQuestion.B}", C: "${currentQuestion.C}", D: "${currentQuestion.D}"`;
-//                 break;
-//             case 'explain_grammar':
-//                 userMessage = 'Nói lại cho tôi phần ngữ pháp này đi, tôi quên mất rồi';
-//                 promptToSend = `Hãy giải thích lại chi tiết về chủ đề ngữ pháp: "${grammarTopic}".`;
-//                 break;
-//             default:
-//                 return;
-//         }
-
-//         setChatMessages(prev => [...prev, { sender: 'user', text: userMessage }]);
-//         setIsLoading(true);
-
-//         try {
-//             const response = await axios.post('http://localhost:8000/api/advice/', {
-//                 // # Tái sử dụng endpoint advice để gửi prompt AI
-//                 // # Backend sẽ cần được sửa đổi để nhận prompt trực tiếp thay vì cấu trúc lỗi
-//                 // # Tạm thời gửi theo cấu trúc cũ, sẽ sửa backend sau
-//                 question_infos: [{
-//                     question: currentQuestion.Question,
-//                     selected_answer: '', // Không có đáp án chọn
-//                     correct_answer: '', // Không có đáp án đúng
-//                     explanation: '', // Không có giải thích
-//                     grammar: grammarTopic // Sử dụng trường Grammar
-//                 }]
-//             });
-//             setChatMessages(prev => [...prev, { sender: 'ai', text: response.data.advice }]);
-//         } catch (error) {
-//             console.error("Lỗi khi hỏi AI:", error);
-//             setChatMessages(prev => [...prev, { sender: 'ai', text: "Xin lỗi, tôi không thể trả lời lúc này. Vui lòng thử lại." }]);
-//         } finally {
-//             setIsLoading(false);
-//         }
-//     };
-
-//     if (!isOpen) return null;
-
-//     return (
-//         <div style={{
-//             position: 'fixed', bottom: '90px', right: '20px',
-//             width: '350px', height: '450px', backgroundColor: 'white',
-//             border: '1px solid #ccc', borderRadius: '10px', boxShadow: '0 4px 10px rgba(0,0,0,0.2)',
-//             display: 'flex', flexDirection: 'column', zIndex: 1001
-//         }}>
-//             <div style={{ padding: '10px', backgroundColor: '#00bcd4', color: 'white', borderTopLeftRadius: '9px', borderTopRightRadius: '9px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-//                 <strong>Chatbot</strong>
-//                 <button onClick={onClose} style={{ background: 'none', border: 'none', color: 'white', fontSize: '1.2em', cursor: 'pointer' }}>X</button>
-//             </div>
-//             <div style={{ flexGrow: 1, padding: '10px', overflowY: 'auto', borderBottom: '1px solid #eee' }}>
-//                 {chatMessages.map((msg, index) => (
-//                     <div key={index} style={{ textAlign: msg.sender === 'user' ? 'right' : 'left', margin: '5px 0' }}>
-//                         <span style={{ 
-//                             display: 'inline-block', 
-//                             padding: '8px 12px', 
-//                             borderRadius: '15px', 
-//                             backgroundColor: msg.sender === 'user' ? '#e0f7fa' : '#c8e6c9', 
-//                             color: 'black' 
-//                         }}>
-//                             {msg.text}
-//                         </span>
-//                     </div>
-//                 ))}
-//                 {isLoading && <p style={{ textAlign: 'center', fontStyle: 'italic', color: '#555' }}>Đang tải...</p>}
-//             </div>
-//             <div style={{ padding: '10px', display: 'flex', flexDirection: 'column', gap: '5px' }}>
-//                 <button onClick={() => handleChatButtonClick('translate')} style={{ padding: '8px', backgroundColor: '#4CAF50', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>Dịch câu hỏi này</button>
-//                 <button onClick={() => handleChatButtonClick('hint')} style={{ padding: '8px', backgroundColor: '#FFC107', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>Gợi ý cho tôi</button>
-//                 <button onClick={() => handleChatButtonClick('explain_grammar')} style={{ padding: '8px', backgroundColor: '#2196F3', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>Nói lại phần ngữ pháp này đi</button>
-//             </div>
-//         </div>
-//     );
-// }
-
-// ... (các imports và code phía trên không thay đổi) ...
 
 function ChatWindow({ isOpen, onClose, currentQuestion, grammarTopic }) {
     const [chatMessages, setChatMessages] = useState([]);
@@ -252,8 +162,8 @@ function ChatWindow({ isOpen, onClose, currentQuestion, grammarTopic }) {
 }
 // ... (phần còn lại của ExercisePage.js không thay đổi) ...
 
-function ExercisePage() {
-    const { topic } = useParams(); // Lấy topic từ URL (e.g., 'hien_tai', 'qua_khu')
+function ExercisePage({ type }) { // <--- THÊM type vào đây
+    const { topic } = useParams(); // Lấy topic từ URL (e.g., 'hien-tai', 'doan-van')
     const [questions, setQuestions] = useState([]);
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [selectedAnswer, setSelectedAnswer] = useState(null);
@@ -266,10 +176,20 @@ function ExercisePage() {
 
 
     useEffect(() => {
-        // Tải câu hỏi khi component được mount hoặc topic thay đổi
         const fetchQuestions = async () => {
             try {
-                const response = await axios.get(`http://localhost:8000/api/exercises/${topic}/`);
+                let apiUrl = '';
+                if (type === 'grammar') {
+                    apiUrl = `http://localhost:8000/api/exercises/${topic}/`;
+                } else if (type === 'reading') {
+                    apiUrl = `http://localhost:8000/api/reading-exercises/${topic}/`; // DÙNG ENDPOINT MỚI
+                } else {
+                    console.error("Loại bài tập không hợp lệ:", type);
+                    setQuestions([]);
+                    return;
+                }
+                
+                const response = await axios.get(apiUrl);
                 setQuestions(response.data);
                 setCurrentQuestionIndex(0); // Bắt đầu lại từ câu đầu tiên
                 setSelectedAnswer(null);
@@ -282,13 +202,13 @@ function ExercisePage() {
             }
         };
         fetchQuestions();
-    }, [topic]); // Chạy lại khi topic thay đổi
+    }, [topic, type]); // Chạy lại khi topic HOẶC type thay đổi
 
     const currentQuestion = questions[currentQuestionIndex];
 
     const handleAnswerChange = (e) => {
         setSelectedAnswer(e.target.value);
-        setShowResult(false); // Ẩn kết quả nếu người dùng thay đổi đáp án
+        setShowResult(false);
     };
 
     const handleSubmit = () => {
@@ -320,13 +240,13 @@ function ExercisePage() {
 
     const handleOpenChat = ({ question, grammarTopic }) => {
         setCurrentChatQuestion(question);
-        setCurrentGrammarTopic(grammarTopic);
+        setCurrentGrammarTopic(grammarTopic); // Sẽ là "Reading - Main Idea" hoặc "Reading - Detail" cho bài đọc
         setChatWindowOpen(true);
     };
 
     const handleCloseChat = () => {
         setChatWindowOpen(false);
-        setChatMessages([]); // Xóa tin nhắn khi đóng chat
+        // setChatMessages([]); // Đã di chuyển logic này vào useEffect trong ChatWindow
     };
 
     if (questions.length === 0) {
@@ -335,10 +255,38 @@ function ExercisePage() {
 
     return (
         <div style={{ maxWidth: '800px', margin: '50px auto', padding: '20px', border: '1px solid #eee', borderRadius: '8px', boxShadow: '0 2px 10px rgba(0,0,0,0.1)' }}>
-            <h2>Bài tập Ngữ pháp: {topic.replace('_', ' ').toUpperCase()}</h2>
-
+            {/* Cập nhật tiêu đề để phản ánh loại bài tập */}
+            <h2>Bài tập {type === 'grammar' ? 'Ngữ pháp' : 'Đọc hiểu'}: {topic.replace('-', ' ').toUpperCase()}</h2>
+            
             <div style={{ marginBottom: '20px', padding: '15px', backgroundColor: '#f9f9f9', borderRadius: '5px' }}>
-                <p style={{ fontWeight: 'bold', fontSize: '1.1em' }}>Câu {currentQuestion.ID}: {currentQuestion.Question}</p>
+                {/* HIỂN THỊ CÂU HỎI VÀ ĐOẠN VĂN MỘT CÁCH PHÙ HỢP */}
+                {type === 'reading' ? (
+                    // Nếu là bài đọc, chia câu hỏi thành đoạn văn và câu hỏi phụ
+                    // Giả định Question có dạng "Read the passage:\n\n[Đoạn văn]\n\n[Câu hỏi phụ]"
+                    // Bạn có thể cần điều chỉnh cách parse nếu định dạng khác
+                    (() => {
+                        const parts = currentQuestion.Question.split('\n\n');
+                        if (parts.length >= 2 && parts[0].startsWith('Read the passage')) {
+                            const passage = parts[1];
+                            const actualQuestion = parts.slice(2).join('\n\n');
+                            return (
+                                <>
+                                    <p style={{ fontStyle: 'italic', marginBottom: '10px' }}>{parts[0]}</p>
+                                    <div style={{ padding: '10px', border: '1px dashed #ccc', borderRadius: '5px', backgroundColor: '#fff', marginBottom: '15px', whiteSpace: 'pre-wrap' }}>
+                                        {passage}
+                                    </div>
+                                    <p style={{ fontWeight: 'bold', fontSize: '1.1em' }}>{currentQuestion.ID}. {actualQuestion}</p>
+                                </>
+                            );
+                        }
+                        // Fallback nếu định dạng không khớp, hiển thị toàn bộ Question
+                        return <p style={{ fontWeight: 'bold', fontSize: '1.1em' }}>{currentQuestion.ID}. {currentQuestion.Question}</p>;
+                    })()
+                ) : (
+                    // Mặc định cho bài tập ngữ pháp
+                    <p style={{ fontWeight: 'bold', fontSize: '1.1em' }}>{currentQuestion.ID}. {currentQuestion.Question}</p>
+                )}
+                
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                     {['A', 'B', 'C', 'D'].map(option => (
                         <label key={option} style={{ cursor: 'pointer', padding: '8px', border: '1px solid #ddd', borderRadius: '4px', backgroundColor: selectedAnswer === option ? '#e0f7fa' : 'transparent' }}>
@@ -348,7 +296,7 @@ function ExercisePage() {
                                 value={option}
                                 checked={selectedAnswer === option}
                                 onChange={handleAnswerChange}
-                                disabled={showResult} // Vô hiệu hóa khi đã hiển thị kết quả
+                                disabled={showResult}
                                 style={{ marginRight: '10px' }}
                             />
                             {option}. {currentQuestion[option]}
@@ -402,3 +350,4 @@ function ExercisePage() {
 }
 
 export default ExercisePage;
+

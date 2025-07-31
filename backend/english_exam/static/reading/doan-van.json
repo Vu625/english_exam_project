@@ -1,0 +1,58 @@
+
+[
+  {
+    "ID": 1,
+    "Question": "Read the passage and answer the question below:\n\nPeople today are increasingly concerned about the environment. Many are trying to reduce their carbon footprint by using public transport, recycling, and consuming less energy. Governments are also taking steps to combat climate change by introducing laws to reduce pollution and support renewable energy. However, some people argue that more drastic actions are needed to make a real difference.\n\nWhat is the main topic of the passage?",
+    "A": "Environmental pollution",
+    "B": "The importance of public transport",
+    "C": "Climate change and responses",
+    "D": "Energy consumption",
+    "Answer": "C",
+    "Explain": "Đoạn văn nói về sự lo ngại ngày càng tăng về môi trường và các biện pháp đối phó với biến đổi khí hậu.",
+    "Grammar": "Reading - Main Idea"
+  },
+  {
+    "ID": 2,
+    "Question": "Read the passage and answer the question below:\n\nPeople today are increasingly concerned about the environment. Many are trying to reduce their carbon footprint by using public transport, recycling, and consuming less energy. Governments are also taking steps to combat climate change by introducing laws to reduce pollution and support renewable energy. However, some people argue that more drastic actions are needed to make a real difference.\n\nAccording to the passage, what is one way people try to reduce their carbon footprint?",
+    "A": "Using more plastic",
+    "B": "Using public transport",
+    "C": "Planting more trees",
+    "D": "Burning fossil fuels",
+    "Answer": "B",
+    "Explain": "Người dân đang cố gắng sử dụng phương tiện công cộng để giảm lượng khí thải carbon.",
+    "Grammar": "Reading - Detail"
+  },
+  {
+    "ID": 3,
+    "Question": "Read the passage and answer the question below:\n\nPeople today are increasingly concerned about the environment. Many are trying to reduce their carbon footprint by using public transport, recycling, and consuming less energy. Governments are also taking steps to combat climate change by introducing laws to reduce pollution and support renewable energy. However, some people argue that more drastic actions are needed to make a real difference.\n\nWhat are governments doing to help the environment?",
+    "A": "Building more roads",
+    "B": "Stopping recycling programs",
+    "C": "Reducing pollution and supporting renewable energy",
+    "D": "Encouraging the use of plastic bags",
+    "Answer": "C",
+    "Explain": "Chính phủ đang giảm ô nhiễm và hỗ trợ năng lượng tái tạo.",
+    "Grammar": "Reading - Inference"
+  },
+  {
+    "ID": 4,
+    "Question": "Read the passage and answer the question below:\n\nPeople today are increasingly concerned about the environment. Many are trying to reduce their carbon footprint by using public transport, recycling, and consuming less energy. Governments are also taking steps to combat climate change by introducing laws to reduce pollution and support renewable energy. However, some people argue that more drastic actions are needed to make a real difference.\n\nThe word 'drastic' in the passage is closest in meaning to:",
+    "A": "mild",
+    "B": "extreme",
+    "C": "unimportant",
+    "D": "unusual",
+    "Answer": "B",
+    "Explain": "'Drastic' có nghĩa là mạnh mẽ, quyết liệt, gần nghĩa với 'extreme'.",
+    "Grammar": "Reading - Vocabulary"
+  },
+  {
+    "ID": 5,
+    "Question": "Read the passage and answer the question below:\n\nPeople today are increasingly concerned about the environment. Many are trying to reduce their carbon footprint by using public transport, recycling, and consuming less energy. Governments are also taking steps to combat climate change by introducing laws to reduce pollution and support renewable energy. However, some people argue that more drastic actions are needed to make a real difference.\n\nWhat is the attitude of the author toward current environmental efforts?",
+    "A": "Satisfied with the current progress",
+    "B": "Unconcerned about climate change",
+    "C": "Believes stronger actions are necessary",
+    "D": "Thinks individual actions are enough",
+    "Answer": "C",
+    "Explain": "Cuối đoạn văn, tác giả nói rằng cần có hành động quyết liệt hơn để tạo ra sự khác biệt thực sự.",
+    "Grammar": "Reading - Attitude"
+  }
+]

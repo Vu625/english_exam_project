@@ -12,6 +12,10 @@ function ExerciseSelectionPage() {
         <Link to="/on-tap/ngu-phap" style={{ padding: '15px 30px', border: '1px solid #ccc', borderRadius: '5px', textDecoration: 'none', color: 'black', fontWeight: 'bold' }}>
           Ngữ Pháp
         </Link>
+        {/* THÊM NÚT "Đọc hiểu" NÀY */}
+        <Link to="/on-tap/doc-hieu/doan-van" style={{ padding: '15px 30px', border: '1px solid #ccc', borderRadius: '5px', textDecoration: 'none', color: 'black', fontWeight: 'bold' }}>
+          Đọc hiểu
+        </Link>
       </div>
     </div>
   );
