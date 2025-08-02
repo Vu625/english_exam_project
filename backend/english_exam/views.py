@@ -9,6 +9,7 @@ from rest_framework.response import Response
 from rest_framework import status
 import google.generativeai as genai
 from google.generativeai.types import HarmCategory, HarmBlockThreshold 
+from .models import ChatSession # <--- THÊM DÒNG NÀY
 # from openai import OpenAI # Sử dụng thư viện OpenAI để kết nối LM Studio
 
         # Khởi tạo OpenAI client để kết nối tới LM Studio
@@ -218,3 +219,90 @@ class ReadingQuestionsView(APIView):
         except Exception as e:
             print(f"Lỗi khi đọc file JSON cho chủ đề đọc hiểu '{topic}': {e}")
             return Response({'error': f'Failed to load reading questions for topic "{topic}": {str(e)}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+class ChatView(APIView):
+    # Bạn sẽ cần bổ sung xác thực tại đây sau này
+    # Ví dụ: permission_classes = [IsAuthenticated]
+    def post(self, request):
+        firebase_uid = request.data.get('user_id')
+        user_message = request.data.get('message')
+        # NHẬN DỮ LIỆU NGỮ CẢNH MỚI
+        current_question_data = request.data.get('current_question_data', None)
+        grammar_topic = request.data.get('grammar_topic', None)
+
+        if not firebase_uid or not user_message:
+            return Response({'error': 'Missing user_id or message'}, status=status.HTTP_400_BAD_REQUEST)
+
+        try:
+            chat_session, created = ChatSession.objects.get_or_create(firebase_uid=firebase_uid)
+            
+            history = json.loads(chat_session.conversations)
+            limited_history = history[-20:] # Giới hạn 20 tin nhắn gần nhất
+
+            # Xây dựng prompt cho Gemini, bao gồm ngữ cảnh
+            full_user_message = user_message
+            if current_question_data:
+                # Thêm thông tin câu hỏi vào prompt nếu có
+                question_text = current_question_data.get('Question', '')
+                options = []
+                if current_question_data.get('A'): options.append(f"A: {current_question_data['A']}")
+                if current_question_data.get('B'): options.append(f"B: {current_question_data['B']}")
+                if current_question_data.get('C'): options.append(f"C: {current_question_data['C']}")
+                if current_question_data.get('D'): options.append(f"D: {current_question_data['D']}")
+                
+                question_options_str = "\n".join(options)
+                
+                context_prefix = f"Người dùng đang làm bài tập. Câu hỏi hiện tại là: '{question_text}'"
+                if question_options_str:
+                    context_prefix += f"\nCác lựa chọn: {question_options_str}"
+                if current_question_data.get('Answer'):
+                    context_prefix += f"\nĐáp án đúng là: '{current_question_data['Answer']}'."
+                if current_question_data.get('Explain'):
+                    context_prefix += f"\nGiải thích có sẵn: '{current_question_data['Explain']}'."
+                
+                if grammar_topic:
+                    context_prefix += f"\nChủ đề ngữ pháp liên quan: '{grammar_topic}'."
+                
+                context_prefix += f"\n\nCâu hỏi của người dùng: "
+                full_user_message = context_prefix + user_message
+            elif grammar_topic:
+                full_user_message = f"Người dùng đang làm bài tập với chủ đề ngữ pháp: '{grammar_topic}'.\n\nCâu hỏi của người dùng: {user_message}"
+
+            # Thêm tin nhắn của người dùng (đã có ngữ cảnh) vào lịch sử
+            limited_history.append({"role": "user", "parts": [{"text": full_user_message}]})
+
+            # Chuyển đổi định dạng để gửi cho Gemini
+            gemini_history = [{"role": msg['role'], "parts": msg['parts']} for msg in limited_history]
+
+            chat = model.start_chat(history=gemini_history)
+            response = chat.send_message(full_user_message, safety_settings=safety_settings) # <--- Gửi full_user_message
+            model_message = response.text
+
+            # Thêm tin nhắn của model vào lịch sử
+            limited_history.append({"role": "model", "parts": [{"text": model_message}]})
+
+            chat_session.conversations = json.dumps(limited_history)
+            chat_session.save()
+
+            return Response({'response': model_message})
+
+        except Exception as e:
+            print(f"Lỗi khi xử lý chat: {e}")
+            return Response({'error': f'Không thể xử lý tin nhắn: {str(e)}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+    # ... (phương thức get không đổi) ...
+    def get(self, request):
+        firebase_uid = request.query_params.get('user_id')
+
+        if not firebase_uid:
+            return Response({'error': 'Missing user_id'}, status=status.HTTP_400_BAD_REQUEST)
+
+        try:
+            chat_session = ChatSession.objects.get(firebase_uid=firebase_uid)
+            history = json.loads(chat_session.conversations)
+            return Response({'history': history})
+        except ChatSession.DoesNotExist:
+            return Response({'history': []}) # Trả về mảng rỗng nếu chưa có session
+        except Exception as e:
+            print(f"Lỗi khi tải lịch sử chat: {e}")
+            return Response({'error': f'Không thể tải lịch sử chat: {str(e)}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
