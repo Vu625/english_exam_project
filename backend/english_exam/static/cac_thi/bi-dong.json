@@ -1,0 +1,112 @@
+[
+  {
+    "ID": 1,
+    "Question": "This house ______ in 1990.",
+    "A": "built",
+    "B": "was built",
+    "C": "was building",
+    "D": "has built",
+    "Answer": "B",
+    "Explain": "Câu bị động thì quá khứ đơn: was/were + V3.",
+    "Grammar": "Câu bị động – Thì quá khứ đơn"
+  },
+  {
+    "ID": 2,
+    "Question": "The room ______ every day.",
+    "A": "is cleaned",
+    "B": "cleaned",
+    "C": "was cleaned",
+    "D": "cleans",
+    "Answer": "A",
+    "Explain": "Câu bị động thì hiện tại đơn: is/am/are + V3.",
+    "Grammar": "Câu bị động – Thì hiện tại đơn"
+  },
+  {
+    "ID": 3,
+    "Question": "A new supermarket ______ in my town next month.",
+    "A": "opened",
+    "B": "is opened",
+    "C": "will be opened",
+    "D": "opens",
+    "Answer": "C",
+    "Explain": "Câu bị động thì tương lai đơn: will be + V3.",
+    "Grammar": "Câu bị động – Thì tương lai đơn"
+  },
+  {
+    "ID": 4,
+    "Question": "The letter ______ by the secretary yesterday.",
+    "A": "was typed",
+    "B": "typed",
+    "C": "has typed",
+    "D": "is typing",
+    "Answer": "A",
+    "Explain": "Câu bị động quá khứ đơn: was + V3.",
+    "Grammar": "Câu bị động – Thì quá khứ đơn"
+  },
+  {
+    "ID": 5,
+    "Question": "The window ______ while I was playing football.",
+    "A": "broke",
+    "B": "was broken",
+    "C": "had broken",
+    "D": "is broken",
+    "Answer": "B",
+    "Explain": "Câu bị động – quá khứ đơn: was + V3.",
+    "Grammar": "Câu bị động – Thì quá khứ đơn"
+  },
+  {
+    "ID": 6,
+    "Question": "English ______ in many countries.",
+    "A": "speaks",
+    "B": "is speaking",
+    "C": "is spoken",
+    "D": "spoken",
+    "Answer": "C",
+    "Explain": "Câu bị động – hiện tại đơn: is + V3.",
+    "Grammar": "Câu bị động – Thì hiện tại đơn"
+  },
+  {
+    "ID": 7,
+    "Question": "The documents ______ by the manager now.",
+    "A": "is being checked",
+    "B": "are being checked",
+    "C": "are checked",
+    "D": "is checked",
+    "Answer": "B",
+    "Explain": "Câu bị động hiện tại tiếp diễn: is/are being + V3.",
+    "Grammar": "Câu bị động – Hiện tại tiếp diễn"
+  },
+  {
+    "ID": 8,
+    "Question": "The cake ______ by my mother this morning.",
+    "A": "made",
+    "B": "was made",
+    "C": "was making",
+    "D": "makes",
+    "Answer": "B",
+    "Explain": "Câu bị động quá khứ đơn: was + V3.",
+    "Grammar": "Câu bị động – Thì quá khứ đơn"
+  },
+  {
+    "ID": 9,
+    "Question": "The room ______ before the guests arrived.",
+    "A": "was cleaned",
+    "B": "had cleaned",
+    "C": "had been cleaned",
+    "D": "has been cleaned",
+    "Answer": "C",
+    "Explain": "Câu bị động quá khứ hoàn thành: had been + V3.",
+    "Grammar": "Câu bị động – Thì quá khứ hoàn thành"
+  },
+  {
+    "ID": 10,
+    "Question": "The report ______ by tomorrow.",
+    "A": "will be finished",
+    "B": "is finished",
+    "C": "finishes",
+    "D": "was finished",
+    "Answer": "A",
+    "Explain": "Câu bị động tương lai đơn: will be + V3.",
+    "Grammar": "Câu bị động – Thì tương lai đơn"
+  }
+]

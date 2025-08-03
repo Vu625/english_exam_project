@@ -1,0 +1,112 @@
+[
+  {
+    "ID": 1,
+    "Question": "She was very ______ about the result of the exam.",
+    "A": "excite",
+    "B": "excited",
+    "C": "exciting",
+    "D": "excitement",
+    "Answer": "B",
+    "Explain": "'Was' + tính từ → cần dùng 'excited' (cảm xúc của người).",
+    "Grammar": "Từ loại – Tính từ chỉ cảm xúc"
+  },
+  {
+    "ID": 2,
+    "Question": "We need to improve our ______ skills if we want to get that job.",
+    "A": "communicate",
+    "B": "communication",
+    "C": "communicative",
+    "D": "communicating",
+    "Answer": "B",
+    "Explain": "Sau tính từ 'our' là danh từ → 'communication' là đúng.",
+    "Grammar": "Từ loại – Danh từ"
+  },
+  {
+    "ID": 3,
+    "Question": "He spoke so ______ that everyone could understand him clearly.",
+    "A": "clear",
+    "B": "clearly",
+    "C": "clarity",
+    "D": "clearness",
+    "Answer": "B",
+    "Explain": "Đứng sau động từ 'spoke' → cần trạng từ → 'clearly'.",
+    "Grammar": "Từ loại – Trạng từ"
+  },
+  {
+    "ID": 4,
+    "Question": "The Internet is one of the most important ______ of our time.",
+    "A": "invent",
+    "B": "inventor",
+    "C": "invented",
+    "D": "inventions",
+    "Answer": "D",
+    "Explain": "Sau 'important' cần danh từ số nhiều → 'inventions'.",
+    "Grammar": "Từ loại – Danh từ"
+  },
+  {
+    "ID": 5,
+    "Question": "She gave an ______ performance that impressed the judges.",
+    "A": "impress",
+    "B": "impression",
+    "C": "impressive",
+    "D": "impressively",
+    "Answer": "C",
+    "Explain": "'Performance' là danh từ → cần tính từ 'impressive' để bổ nghĩa.",
+    "Grammar": "Từ loại – Tính từ"
+  },
+  {
+    "ID": 6,
+    "Question": "His careless driving caused a serious ______.",
+    "A": "accidental",
+    "B": "accident",
+    "C": "accidentally",
+    "D": "accidented",
+    "Answer": "B",
+    "Explain": "Cần một danh từ → 'accident' là đúng.",
+    "Grammar": "Từ loại – Danh từ"
+  },
+  {
+    "ID": 7,
+    "Question": "The teacher was pleased with her students’ ______.",
+    "A": "improve",
+    "B": "improvement",
+    "C": "improving",
+    "D": "improved",
+    "Answer": "B",
+    "Explain": "Sau giới từ 'with' là danh từ → 'improvement'.",
+    "Grammar": "Từ loại – Danh từ"
+  },
+  {
+    "ID": 8,
+    "Question": "He is a very ______ person and everyone likes him.",
+    "A": "friend",
+    "B": "friendly",
+    "C": "friendship",
+    "D": "friendliness",
+    "Answer": "B",
+    "Explain": "'A very + adj + noun' → cần tính từ 'friendly'.",
+    "Grammar": "Từ loại – Tính từ"
+  },
+  {
+    "ID": 9,
+    "Question": "Environmental ______ is a serious issue in many countries.",
+    "A": "pollute",
+    "B": "pollution",
+    "C": "polluting",
+    "D": "polluted",
+    "Answer": "B",
+    "Explain": "'Environmental' là tính từ → cần danh từ 'pollution'.",
+    "Grammar": "Từ loại – Danh từ"
+  },
+  {
+    "ID": 10,
+    "Question": "We are working hard to find a ______ to the problem.",
+    "A": "solve",
+    "B": "solving",
+    "C": "solution",
+    "D": "solved",
+    "Answer": "C",
+    "Explain": "Cần một danh từ chỉ kết quả → 'solution'.",
+    "Grammar": "Từ loại – Danh từ"
+  }
+]

@@ -242,7 +242,7 @@ function ChatWindow({ isOpen, onClose, currentQuestion, grammarTopic }) {
                         Giải thích câu này
                     </button>
                     <button
-                        onClick={() => sendQuickMessage("Cho tôi một gợi ý.")}
+                        onClick={() => sendQuickMessage("Cho tôi một gợi ý nhỏ.")}
                         style={quickActionButtonStyle}
                         disabled={loading}
                     >
@@ -258,11 +258,11 @@ function ChatWindow({ isOpen, onClose, currentQuestion, grammarTopic }) {
                         </button>
                     )}
                     <button
-                        onClick={() => sendQuickMessage("Kiểm tra đáp án của tôi.")}
+                        onClick={() => sendQuickMessage("Dịch câu hỏi và các đáp án")}
                         style={quickActionButtonStyle}
                         disabled={loading}
                     >
-                        Kiểm tra đáp án
+                        Dịch câu này.
                     </button>
                 </div>
             )}

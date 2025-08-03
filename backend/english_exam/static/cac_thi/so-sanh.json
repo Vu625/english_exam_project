@@ -1,0 +1,112 @@
+[
+  {
+    "ID": 1,
+    "Question": "This book is ______ than the one I read last week.",
+    "A": "more interesting",
+    "B": "most interesting",
+    "C": "as interesting",
+    "D": "the most interesting",
+    "Answer": "A",
+    "Explain": "'Than' cho thấy dạng so sánh hơn → dùng 'more + adj dài'.",
+    "GrammarTopic": "So sánh hơn – tính từ dài"
+  },
+  {
+    "ID": 2,
+    "Question": "He drives ______ than his brother.",
+    "A": "carefully",
+    "B": "more carefully",
+    "C": "most carefully",
+    "D": "as carefully",
+    "Answer": "B",
+    "Explain": "So sánh hơn của trạng từ dài 'more + trạng từ'.",
+    "GrammarTopic": "So sánh hơn – trạng từ"
+  },
+  {
+    "ID": 3,
+    "Question": "Of the three cars, this one is ______.",
+    "A": "expensive",
+    "B": "more expensive",
+    "C": "the most expensive",
+    "D": "as expensive as",
+    "Answer": "C",
+    "Explain": "So sánh nhất của tính từ – dùng 'the most' với 3 đối tượng trở lên.",
+    "GrammarTopic": "So sánh nhất – tính từ dài"
+  },
+  {
+    "ID": 4,
+    "Question": "This film is not ______ that one.",
+    "A": "as interesting as",
+    "B": "more interesting",
+    "C": "most interesting",
+    "D": "the more interesting",
+    "Answer": "A",
+    "Explain": "'Not as...as' để diễn tả sự kém hơn.",
+    "GrammarTopic": "So sánh bằng – phủ định"
+  },
+  {
+    "ID": 5,
+    "Question": "She is ______ student in our class.",
+    "A": "more intelligent",
+    "B": "the more intelligent",
+    "C": "most intelligent",
+    "D": "the most intelligent",
+    "Answer": "D",
+    "Explain": "So sánh nhất cần 'the most + adj' khi so sánh trong nhóm.",
+    "GrammarTopic": "So sánh nhất – tính từ dài"
+  },
+  {
+    "ID": 6,
+    "Question": "My house is ______ from the school than yours.",
+    "A": "far",
+    "B": "farther",
+    "C": "farthest",
+    "D": "as far",
+    "Answer": "B",
+    "Explain": "So sánh hơn của 'far' là 'farther'.",
+    "GrammarTopic": "So sánh hơn – tính từ ngắn đặc biệt"
+  },
+  {
+    "ID": 7,
+    "Question": "She works ______ than anyone else in the company.",
+    "A": "harder",
+    "B": "hardest",
+    "C": "as hard",
+    "D": "more hard",
+    "Answer": "A",
+    "Explain": "'Hard' là trạng từ ngắn, so sánh hơn là 'harder'.",
+    "GrammarTopic": "So sánh hơn – trạng từ ngắn"
+  },
+  {
+    "ID": 8,
+    "Question": "Today is ______ day of the year.",
+    "A": "colder",
+    "B": "the coldest",
+    "C": "cold",
+    "D": "as cold as",
+    "Answer": "B",
+    "Explain": "So sánh nhất – 'the coldest' là dạng đúng.",
+    "GrammarTopic": "So sánh nhất – tính từ ngắn"
+  },
+  {
+    "ID": 9,
+    "Question": "No one in the class is ______ John.",
+    "A": "taller than",
+    "B": "as tall",
+    "C": "the tallest",
+    "D": "more tall",
+    "Answer": "A",
+    "Explain": "'No one... taller than' thể hiện John là cao nhất.",
+    "GrammarTopic": "So sánh hơn – người với tập thể"
+  },
+  {
+    "ID": 10,
+    "Question": "He speaks English ______ his brother.",
+    "A": "better than",
+    "B": "more well",
+    "C": "good than",
+    "D": "as better as",
+    "Answer": "A",
+    "Explain": "'Better' là so sánh hơn của 'well'.",
+    "GrammarTopic": "So sánh hơn – trạng từ bất quy tắc"
+  }
+]

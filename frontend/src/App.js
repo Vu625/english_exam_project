@@ -1,17 +1,17 @@
 // src/App.js
-// import React from 'react';
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom'; // Import useNavigate
+import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom';
 import TestNhanhPage from './TestNhanhPage';
 import HomePage from './HomePage';
 import ExerciseSelectionPage from './ExerciseSelectionPage';
 import GrammarTopicSelectionPage from './GrammarTopicSelectionPage';
 import ExercisePage from './ExercisePage';
-import LoginPage from './LoginPage'; // <--- Import LoginPage
-import RegisterPage from './RegisterPage'; // <--- Import RegisterPage
-import { AuthProvider, useAuth } from './AuthContext'; // <--- Import AuthProvider và useAuth
-import { auth } from './firebase'; // <--- Import auth để đăng xuất
-import { signOut } from 'firebase/auth'; // <--- Import signOut
+import LoginPage from './LoginPage';
+import RegisterPage from './RegisterPage';
+import { AuthProvider, useAuth } from './AuthContext';
+import { auth } from './firebase';
+import { signOut } from 'firebase/auth';
+import VocabularyTopicSelectionPage from './VocabularyTopicSelectionPage'; // Đảm bảo đã import
 
 // Component Header để hiển thị trạng thái đăng nhập và nút đăng xuất
 function AppHeader() {
@@ -29,27 +29,68 @@ function AppHeader() {
   };
 
   return (
-    <nav style={{ padding: '10px', backgroundColor: '#f0f0f0', display: 'flex', justifyContent: 'space-around', alignItems: 'center' }}>
-      <Link to="/" style={{ margin: '0 10px', textDecoration: 'none', color: 'blue', fontWeight: 'bold' }}>Trang Chủ</Link>
-      <Link to="/test-nhanh" style={{ margin: '0 10px', textDecoration: 'none', color: 'blue', fontWeight: 'bold' }}>Test Nhanh</Link>
-      <Link to="/on-tap" style={{ margin: '0 10px', textDecoration: 'none', color: 'blue', fontWeight: 'bold' }}>Ôn tập</Link>
+    <nav style={{ padding: '15px 40px', backgroundColor: '#ffffff', boxShadow: '0 2px 10px rgba(0,0,0,0.05)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', position: 'sticky', top: 0, zIndex: 1000 }}>
+      <h1 style={{ margin: 0, fontSize: '2em', fontFamily: '"Montserrat", sans-serif', color: '#4CAF50' }}>Doughnut English</h1>
+      <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex' }}>
+        <li style={{ marginLeft: '35px' }}>
+          <Link to="/" style={{ color: '#333333', textDecoration: 'none', fontSize: '1.1em', fontWeight: '600', transition: 'color 0.2s ease' }}
+            onMouseEnter={e => e.currentTarget.style.color = '#4CAF50'}
+            onMouseLeave={e => e.currentTarget.style.color = '#333333'}>Trang Chủ</Link>
+        </li>
+        <li style={{ marginLeft: '35px' }}>
+          <Link to="/on-tap" style={{ color: '#333333', textDecoration: 'none', fontSize: '1.1em', fontWeight: '600', transition: 'color 0.2s ease' }}
+            onMouseEnter={e => e.currentTarget.style.color = '#4CAF50'}
+            onMouseLeave={e => e.currentTarget.style.color = '#333333'}>Ôn tập</Link>
+        </li>
+        <li style={{ marginLeft: '35px' }}>
+          <Link to="/test-nhanh" style={{ color: '#333333', textDecoration: 'none', fontSize: '1.1em', fontWeight: '600', transition: 'color 0.2s ease' }}
+            onMouseEnter={e => e.currentTarget.style.color = '#4CAF50'}
+            onMouseLeave={e => e.currentTarget.style.color = '#333333'}>Kiểm tra</Link>
+        </li>
+      </ul>
 
-      <div style={{ marginLeft: 'auto', marginRight: '20px' }}>
+      <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
         {!loading && (
           currentUser ? (
             <>
-              <span style={{ marginRight: '15px' }}>Chào mừng, {currentUser.email}</span>
+              <span style={{ marginRight: '15px', color: '#333333', fontWeight: '600' }}>Chào mừng, {currentUser.email}</span>
               <button
                 onClick={handleLogout}
-                style={{ padding: '8px 15px', backgroundColor: '#dc3545', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer' }}
+                style={{
+                  padding: '8px 15px',
+                  backgroundColor: '#dc3545',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '5px',
+                  cursor: 'pointer',
+                  fontSize: '0.9em',
+                  fontWeight: 'bold',
+                  transition: 'background-color 0.2s ease'
+                }}
+                onMouseEnter={e => e.currentTarget.style.backgroundColor = '#c82333'}
+                onMouseLeave={e => e.currentTarget.style.backgroundColor = '#dc3545'}
               >
                 Đăng xuất
               </button>
             </>
           ) : (
             <>
-              <Link to="/login" style={{ margin: '0 10px', textDecoration: 'none', color: 'blue', fontWeight: 'bold' }}>Đăng nhập</Link>
-              <Link to="/register" style={{ margin: '0 10px', textDecoration: 'none', color: 'blue', fontWeight: 'bold' }}>Đăng ký</Link>
+              <Link to="/login" style={{ color: '#2196F3', textDecoration: 'none', fontSize: '1.0em', fontWeight: 'bold', marginRight: '15px', transition: 'color 0.2s ease' }}
+                onMouseEnter={e => e.currentTarget.style.color = '#1a7bd8'}
+                onMouseLeave={e => e.currentTarget.style.color = '#2196F3'}>Đăng nhập</Link>
+              <Link to="/register" style={{
+                padding: '8px 15px',
+                backgroundColor: '#4CAF50',
+                color: 'white',
+                border: 'none',
+                borderRadius: '5px',
+                textDecoration: 'none',
+                fontSize: '1.0em',
+                fontWeight: 'bold',
+                transition: 'background-color 0.2s ease'
+              }}
+                onMouseEnter={e => e.currentTarget.style.backgroundColor = '#45a049'}
+                onMouseLeave={e => e.currentTarget.style.backgroundColor = '#4CAF50'}>Đăng ký</Link>
             </>
           )
         )}
@@ -129,6 +170,25 @@ function App() {
               </ProtectedRoute>
             }
           />
+
+          {/* NEW: Các routes cho phần Từ vựng */}
+          <Route
+            path="/on-tap/tu-vung-chon-chu-de"
+            element={
+              <ProtectedRoute>
+                <VocabularyTopicSelectionPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/on-tap/tu-vung/:topic"
+            element={
+              <ProtectedRoute>
+                <ExercisePage type="vocabulary" />
+              </ProtectedRoute>
+            }
+          />
+
         </Routes>
       </AuthProvider>
     </Router>

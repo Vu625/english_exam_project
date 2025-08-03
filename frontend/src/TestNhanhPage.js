@@ -40,9 +40,6 @@ function App() {
 
             return (
                 <div className="App">
-                    <header className="App-header">
-                        <h1>Web luyện thi tiếng anh THPT</h1>
-                    </header>
                     <main>
                         {submitError && <div style={{ color: 'red', textAlign: 'center' }}>{submitError}</div>}
                         {loadingSubmit && <div style={{ textAlign: 'center' }}>Đang nộp bài...</div>}

@@ -9,22 +9,15 @@ from rest_framework.response import Response
 from rest_framework import status
 import google.generativeai as genai
 from google.generativeai.types import HarmCategory, HarmBlockThreshold 
-from .models import ChatSession # <--- THÊM DÒNG NÀY
-# from openai import OpenAI # Sử dụng thư viện OpenAI để kết nối LM Studio
+from .models import ChatSession 
+from english_exam.models import VocabularyQuestion # <--- Đảm bảo là english_exam.models
+from english_exam.serializers import VocabularyQuestionSerializer # <--- Đảm bảo là english_exam.serializers
+from rest_framework import generics
 
-        # Khởi tạo OpenAI client để kết nối tới LM Studio
-        # LM Studio mặc định chạy trên localhost:1234
-# lm_studio_client = OpenAI(
-#             base_url="http://192.168.1.22:1234/v1", # Đây là endpoint của LM Studio
-# api_key="lm-studio" # API Key không quan trọng với LM Studio, có thể đặt bất kỳ
-#         )
-
-GEMINI_API_KEY = "AIzaSyC1pwsa7LbW0CBO4MfiV8E11g69plkEVZs" # <--- THAY THẾ DÒNG NÀY !!!
+GEMINI_API_KEY = "AIzaSyC1pwsa7LbW0CBO4MfiV8E11g69plkEVZs" 
 genai.configure(api_key=GEMINI_API_KEY)
 
-# Khởi tạo mô hình Gemini
-# Sử dụng 'gemini-pro' cho các tác vụ văn bản
-model = genai.GenerativeModel('gemini-2.5-flash') # <-- THÊM 'models/' vào đây
+model = genai.GenerativeModel('gemini-2.5-flash') 
 
 safety_settings = {
     HarmCategory.HARM_CATEGORY_HARASSMENT: HarmBlockThreshold.BLOCK_NONE,
@@ -115,24 +108,54 @@ class GetAdviceView(APIView):
                 )
                 return Response({'advice': response.text})
             except Exception as e:
-                # Log lỗi để debug
                 print(f"Lỗi khi gọi Google Gemini API cho chatbot: {e}")
                 return Response({'error': 'Failed to get advice from AI for chatbot. Please try again.'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
         # --- LOGIC CŨ: Xử lý lời khuyên bài thi ---
-        wrong_questions = data.get('question_infos', [])
+        wrong_questions = data.get('incorrect_details', [])
 
         if not wrong_questions:
-            # Nếu không có câu sai, trả về lời động viên
-            return Response({'advice': 'Bạn đã làm rất tốt! Không có điểm ngữ pháp nào cần củng cố.'})
+            # Nếu không có câu sai, trả về lời động viên và không có đề xuất bài tập
+            return Response({'advice': 'Bạn đã làm rất tốt! Không có điểm ngữ pháp nào cần củng cố.', 'recommended_topics': []})
 
         combined_info = "Các câu sau đây bạn đã làm sai hoặc chưa làm:\n\n"
-        grammar_points = set() # Sử dụng set để tránh trùng lặp
+        grammar_points = set() 
         
+        # Danh sách các chủ đề ngữ pháp mà website của bạn đang có (thêm hoặc xóa nếu cần)
+        # Tên trong list này phải khớp với tên file JSON (ví dụ: hien-tai.json -> 'hien-tai')
+        available_grammar_topics = [
+            'hien-tai', 
+            'qua-khu', 
+            'tuong-lai', 
+            'bi-dong', 
+            'so-sanh',
+            'dieu-kien',
+            'dong-tu-khuyet-thieu',
+            'gia-dinh',
+            'gian-tiep',
+            'tu-loai',
+            'menh-de-quan-he'
+        ]
+        
+        # Chuyển đổi sang định dạng thân thiện hơn để in ra prompt
+        available_grammar_topics_vietnamese = {
+            'hien-tai': 'Các thì hiện tại',
+            'qua-khu': 'Các thì quá khứ',
+            'tuong-lai': 'Các thì tương lai',
+            'bi-dong': 'Câu bị động',
+            'so-sanh': 'Cấu trúc so sánh',
+            'dieu-kien': 'Câu Điều Kiện',
+            'dong-tu-khuyet-thieu': 'Đông từ khuyết thiếu',
+            'gia-dinh':'Câu giả định',
+            'gian-tiep': 'Câu gián tiếp',
+            'tu-loai': 'Từ Loại',
+            'menh-de-quan-he':'Mệnh Đề Quan hệ'
+        }
+
         for q_info in wrong_questions:
-            question_text = q_info.get('question', 'N/A')
-            selected_answer = q_info.get('selected_answer', 'N/A')
-            correct_answer = q_info.get('correct_answer', 'N/A')
+            question_text = q_info.get('question_text', 'N/A') # Đổi 'question' thành 'question_text' để khớp với SubmitExamView
+            selected_answer = q_info.get('user_answer', 'N/A') # Đổi 'selected_answer' thành 'user_answer'
+            correct_answer = q_info.get('correct_answer_value', 'N/A') # Đổi 'correct_answer' thành 'correct_answer_value'
             explanation = q_info.get('explanation', 'N/A')
             grammar_topic = q_info.get('grammar', 'Chưa xác định') # Lấy trường 'Grammar'
 
@@ -147,11 +170,16 @@ class GetAdviceView(APIView):
 
         # Xây dựng prompt cho AI
         full_prompt = (
-            f"Tôi đã làm một bài kiểm tra tiếng Anh và làm sai các câu sau. "
+            f"Bạn là một Chatbot hỗ trợ tiếng anh thông minh của một website ôn tiếng anh,người dùng đã làm một bài kiểm tra tiếng Anh và làm sai các câu sau. "
             f"Bạn hãy phân tích các lỗi sai dựa trên các điểm ngữ pháp liên quan và đưa ra lời khuyên cụ thể, "
-            f"dễ hiểu để tôi có thể cải thiện. "
+            f"dễ hiểu để người dùng có thể cải thiện. "
             f"Đặc biệt chú ý đến các điểm ngữ pháp sau: {', '.join(grammar_points) if grammar_points else 'không có điểm ngữ pháp cụ thể nào được cung cấp'}.\n\n"
-            f"Thông tin các câu sai:\n{combined_info}"
+            f"Thông tin các câu sai:\n{combined_info}\n\n"
+            f"Dưới đây là danh sách các chủ đề ngữ pháp mà website có, được định dạng theo slug (tên file json): "
+            f"{', '.join([f'{k} ({v})' for k, v in available_grammar_topics_vietnamese.items()])}. "
+            f"Dựa trên các lỗi sai của người dùng, hãy đề xuất TỐI ĐA 3 bài tập ngữ pháp cần thiết nhất từ danh sách trên để người dùng ôn luyện, "
+            f"đặt mỗi đề xuất trong cặp ký hiệu '@@@' (ví dụ: @@@hien-tai@@@, @@@bi-dong@@@, @@@tuong-lai@@@) ở CUỐI CÙNG của lời khuyên của bạn. "
+            f"Nếu không có đề xuất nào phù hợp hoặc đủ quan trọng, KHÔNG cần thêm các cặp '@@@'."
         )
 
         try:
@@ -159,24 +187,32 @@ class GetAdviceView(APIView):
                 full_prompt,
                 safety_settings=safety_settings
             )
-            return Response({'advice': response.text})
+            raw_advice_text = response.text
+
+            # Trích xuất các đề xuất từ phản hồi của AI
+            recommended_topics_slugs = []
+            import re
+            # Sử dụng regex để tìm tất cả các chuỗi trong '@@@...@@@'
+            matches = re.findall(r'@@@(.*?)@@@', raw_advice_text)
+            for match in matches:
+                # Chỉ thêm vào nếu topic này có trong danh sách cho phép của bạn
+                if match in available_grammar_topics:
+                    recommended_topics_slugs.append(match)
+            
+            # Xóa các tag @@@ khỏi nội dung lời khuyên chính
+            cleaned_advice = re.sub(r'@@@.*?@@@', '', raw_advice_text).strip()
+
+            return Response({
+                'advice': cleaned_advice,
+                'recommended_topics': recommended_topics_slugs
+            })
         except Exception as e:
             print(f"Lỗi khi gọi Google Gemini API: {e}")
             return Response({'error': 'Failed to get advice from AI. Please try again.'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 class ExerciseQuestionsView(APIView):
     def get(self, request, topic):
-        # Chuyển đổi topic từ gạch ngang sang gạch dưới để khớp với tên file JSON
-        # (Nếu bạn đã đổi tên file JSON thành hien-tai.json và qua-khu.json, thì bỏ qua dòng này)
-        #actual_topic_name = topic.replace('-', '_') # GIỮ LẠI DÒNG NÀY NẾU FILE VẪN LÀ hien_tai.json, XÓA NẾU ĐÃ ĐỔI TÊN
-
-        # Xây dựng đường dẫn đến thư mục 'cac_thi' trong static
-        # Đảm bảo đường dẫn này khớp với vị trí thư mục của bạn
         base_data_path = os.path.join(settings.BASE_DIR, 'english_exam', 'static', 'cac_thi')
-        
-        # Sử dụng actual_topic_name để xây dựng tên file
-        # (Nếu bạn đã đổi tên file JSON thành hien-tai.json và qua-khu.json, thì đổi lại thành topic.json)
-        # file_name = f"{actual_topic_name}.json" # SỬ DỤNG actual_topic_name NẾU FILE LÀ hien_tai.json, SỬ DỤNG topic NẾU FILE LÀ hien-tai.json
         file_name = f"{topic}.json"
         file_path = os.path.join(base_data_path, file_name)
 
@@ -198,10 +234,6 @@ class ExerciseQuestionsView(APIView):
 
 class ReadingQuestionsView(APIView):
     def get(self, request, topic):
-        # Trong trường hợp này, topic sẽ là 'doan-van'
-        # Đảm bảo tên file JSON của bạn là 'doan-van.json' (gạch ngang)
-
-        # Thay đổi base_data_path để trỏ đến thư mục 'reading'
         base_data_path = os.path.join(settings.BASE_DIR, 'english_exam', 'static', 'reading')
 
         file_name = f"{topic}.json" # Sẽ là "doan-van.json"
@@ -220,9 +252,38 @@ class ReadingQuestionsView(APIView):
             print(f"Lỗi khi đọc file JSON cho chủ đề đọc hiểu '{topic}': {e}")
             return Response({'error': f'Failed to load reading questions for topic "{topic}": {str(e)}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
+# ... (các imports và classes hiện có của bạn)
+
+class VocabularyExerciseView(generics.ListAPIView):
+    serializer_class = VocabularyQuestionSerializer
+
+    def get_queryset(self):
+        topic = self.kwargs['topic'] # Lấy 'topic' từ URL
+        # Lọc các câu hỏi dựa trên chủ đề
+        return VocabularyQuestion.objects.filter(topic=topic)
+
+class VocabularyQuestionsView(APIView):
+    def get(self, request, topic):
+        # Đường dẫn đến thư mục 'vocabulary' trong static
+        base_data_path = os.path.join(settings.BASE_DIR, 'english_exam', 'static', 'vocabulary')
+        
+        file_name = f"{topic}.json" 
+        file_path = os.path.join(base_data_path, file_name)
+
+        print(f"Attempting to load vocabulary file from: {file_path}") # Dòng debug
+
+        if not os.path.exists(file_path):
+            return Response({'error': f'Vocabulary topic "{topic}" not found or file "{file_name}" does not exist at "{file_path}". Please check file name and path.'}, status=status.HTTP_404_NOT_FOUND)
+
+        try:
+            with open(file_path, 'r', encoding='utf-8') as f:
+                questions = json.load(f)
+            return Response(questions)
+        except Exception as e:
+            print(f"Lỗi khi đọc file JSON cho chủ đề từ vựng '{topic}': {e}")
+            return Response({'error': f'Failed to load vocabulary questions for topic "{topic}": {str(e)}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
 class ChatView(APIView):
-    # Bạn sẽ cần bổ sung xác thực tại đây sau này
-    # Ví dụ: permission_classes = [IsAuthenticated]
     def post(self, request):
         firebase_uid = request.data.get('user_id')
         user_message = request.data.get('message')
@@ -252,7 +313,7 @@ class ChatView(APIView):
                 
                 question_options_str = "\n".join(options)
                 
-                context_prefix = f"Người dùng đang làm bài tập. Câu hỏi hiện tại là: '{question_text}'"
+                context_prefix = f"Bạn là một chatbot thông minh và đang hỗ trợ người dùng học tập. Hãy dựa vào các thông tin dưới đây để trả lời người dùng, tuyệt đối không được tiếc lộ đáp án. Người dùng đang làm bài tập. Câu hỏi hiện tại là: '{question_text}'"
                 if question_options_str:
                     context_prefix += f"\nCác lựa chọn: {question_options_str}"
                 if current_question_data.get('Answer'):
@@ -290,7 +351,7 @@ class ChatView(APIView):
             print(f"Lỗi khi xử lý chat: {e}")
             return Response({'error': f'Không thể xử lý tin nhắn: {str(e)}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-    # ... (phương thức get không đổi) ...
+
     def get(self, request):
         firebase_uid = request.query_params.get('user_id')
 

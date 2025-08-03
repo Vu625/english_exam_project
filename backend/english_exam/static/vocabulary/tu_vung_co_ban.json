@@ -1,0 +1,38 @@
+[
+  {
+    "ID": 1,
+    "Word": "Accomplish",
+    "Type": "verb",
+    "Pronunciation": "/əˈkɑːmplɪʃ/",
+    "Meaning": "To achieve or complete successfully.",
+    "Example": "She accomplished her goal of learning English fluently.",
+    "VietnameseMeaning": "Hoàn thành, đạt được thành công.",
+    "ExerciseQuestion": "Chọn từ có nghĩa gần nhất với 'achieve':\nA. Accomplish\nB. Attempt\nC. Fail\nD. Decline",
+    "CorrectAnswer": "A",
+    "Explanation": "'Accomplish' có nghĩa là hoàn thành thành công, rất gần với 'achieve'."
+  },
+  {
+    "ID": 2,
+    "Word": "Adapt",
+    "Type": "verb",
+    "Pronunciation": "/əˈdæpt/",
+    "Meaning": "To adjust to new conditions.",
+    "Example": "It took him a while to adapt to the new environment.",
+    "VietnameseMeaning": "Thích nghi, điều chỉnh.",
+    "ExerciseQuestion": "Điền từ thích hợp: 'Fish ______ to living in water.'\nA. change\nB. adapt\nC. evolve\nD. modify",
+    "CorrectAnswer": "B",
+    "Explanation": "'Adapt' có nghĩa là thích nghi với điều kiện mới, phù hợp với ngữ cảnh."
+  },
+  {
+    "ID": 3,
+    "Word": "Beneficial",
+    "Type": "adjective",
+    "Pronunciation": "/ˌbenɪˈfɪʃl/",
+    "Meaning": "Helpful, advantageous, or good.",
+    "Example": "Learning English is beneficial for your career.",
+    "VietnameseMeaning": "Có lợi, có ích.",
+    "ExerciseQuestion": "Hoàn thành câu: 'Regular exercise is very _______ for your health.'",
+    "CorrectAnswer": "beneficial",
+    "Explanation": "Từ 'beneficial' (có lợi) phù hợp với ngữ cảnh sức khỏe."
+  }
+]

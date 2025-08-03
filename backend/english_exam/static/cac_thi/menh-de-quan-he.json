@@ -1,0 +1,112 @@
+[
+  {
+    "ID": 1,
+    "Question": "The man ______ is talking to our teacher is my uncle.",
+    "A": "who",
+    "B": "which",
+    "C": "whom",
+    "D": "whose",
+    "Answer": "A",
+    "Explain": "'Who' dùng để thay thế cho chủ ngữ là người.",
+    "Grammar": "Mệnh đề quan hệ – đại từ 'who'"
+  },
+  {
+    "ID": 2,
+    "Question": "The book ______ I borrowed from you is very interesting.",
+    "A": "who",
+    "B": "whose",
+    "C": "which",
+    "D": "where",
+    "Answer": "C",
+    "Explain": "'Which' dùng thay thế cho vật làm tân ngữ.",
+    "Grammar": "Mệnh đề quan hệ – đại từ 'which'"
+  },
+  {
+    "ID": 3,
+    "Question": "The girl ______ dress is red is my cousin.",
+    "A": "who",
+    "B": "whom",
+    "C": "whose",
+    "D": "which",
+    "Answer": "C",
+    "Explain": "'Whose' dùng để chỉ sự sở hữu trong mệnh đề quan hệ.",
+    "Grammar": "Mệnh đề quan hệ – đại từ 'whose'"
+  },
+  {
+    "ID": 4,
+    "Question": "Do you know the man ______ she is talking to?",
+    "A": "who",
+    "B": "whom",
+    "C": "which",
+    "D": "whose",
+    "Answer": "B",
+    "Explain": "'Whom' dùng làm tân ngữ chỉ người trong mệnh đề quan hệ.",
+    "Grammar": "Mệnh đề quan hệ – đại từ 'whom'"
+  },
+  {
+    "ID": 5,
+    "Question": "The house ______ we stayed during our holiday was amazing.",
+    "A": "where",
+    "B": "when",
+    "C": "whose",
+    "D": "which",
+    "Answer": "A",
+    "Explain": "'Where' dùng thay thế cho danh từ chỉ nơi chốn.",
+    "Grammar": "Mệnh đề quan hệ – trạng từ quan hệ 'where'"
+  },
+  {
+    "ID": 6,
+    "Question": "Summer is the season ______ we often go swimming.",
+    "A": "where",
+    "B": "when",
+    "C": "which",
+    "D": "why",
+    "Answer": "B",
+    "Explain": "'When' dùng để thay thế cho danh từ chỉ thời gian.",
+    "Grammar": "Mệnh đề quan hệ – trạng từ quan hệ 'when'"
+  },
+  {
+    "ID": 7,
+    "Question": "That is the reason ______ he didn’t come to the party.",
+    "A": "why",
+    "B": "which",
+    "C": "what",
+    "D": "where",
+    "Answer": "A",
+    "Explain": "'Why' được dùng sau 'reason' để chỉ nguyên nhân.",
+    "Grammar": "Mệnh đề quan hệ – trạng từ quan hệ 'why'"
+  },
+  {
+    "ID": 8,
+    "Question": "The car ______ he bought last week is very expensive.",
+    "A": "who",
+    "B": "whom",
+    "C": "which",
+    "D": "where",
+    "Answer": "C",
+    "Explain": "'Which' thay thế cho vật làm tân ngữ.",
+    "Grammar": "Mệnh đề quan hệ – đại từ 'which'"
+  },
+  {
+    "ID": 9,
+    "Question": "The woman ______ son is my friend is very kind.",
+    "A": "who",
+    "B": "whom",
+    "C": "which",
+    "D": "whose",
+    "Answer": "D",
+    "Explain": "'Whose' diễn tả sự sở hữu trong mệnh đề quan hệ.",
+    "Grammar": "Mệnh đề quan hệ – đại từ 'whose'"
+  },
+  {
+    "ID": 10,
+    "Question": "The boy ______ won the race is only 10 years old.",
+    "A": "who",
+    "B": "whom",
+    "C": "which",
+    "D": "whose",
+    "Answer": "A",
+    "Explain": "'Who' thay thế cho chủ ngữ là người.",
+    "Grammar": "Mệnh đề quan hệ – đại từ 'who'"
+  }
+]

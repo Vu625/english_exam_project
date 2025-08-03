@@ -1,0 +1,112 @@
+[
+  {
+    "ID": 1,
+    "Question": "She said, \"I am reading a book.\" → She said that she ______ a book.",
+    "A": "was reading",
+    "B": "is reading",
+    "C": "has read",
+    "D": "had read",
+    "Answer": "A",
+    "Explain": "Câu trực tiếp ở thì hiện tại tiếp diễn → gián tiếp chuyển về quá khứ tiếp diễn.",
+    "Grammar": "Câu gián tiếp – chuyển từ hiện tại tiếp diễn"
+  },
+  {
+    "ID": 2,
+    "Question": "He said, \"I have finished my homework.\" → He said that he ______ his homework.",
+    "A": "finished",
+    "B": "had finished",
+    "C": "has finished",
+    "D": "finishes",
+    "Answer": "B",
+    "Explain": "Hiện tại hoàn thành → quá khứ hoàn thành trong câu gián tiếp.",
+    "Grammar": "Câu gián tiếp – chuyển từ hiện tại hoàn thành"
+  },
+  {
+    "ID": 3,
+    "Question": "They said, \"We went to the zoo yesterday.\" → They said that they ______ to the zoo the day before.",
+    "A": "go",
+    "B": "had gone",
+    "C": "have gone",
+    "D": "went",
+    "Answer": "B",
+    "Explain": "Quá khứ đơn → quá khứ hoàn thành trong câu gián tiếp.",
+    "Grammar": "Câu gián tiếp – chuyển từ quá khứ đơn"
+  },
+  {
+    "ID": 4,
+    "Question": "\"Will you help me?\" she asked him. → She asked him if he ______ her.",
+    "A": "will help",
+    "B": "would help",
+    "C": "can help",
+    "D": "helps",
+    "Answer": "B",
+    "Explain": "Trợ động từ 'will' chuyển thành 'would' trong câu gián tiếp.",
+    "Grammar": "Câu gián tiếp – câu hỏi Yes/No với 'will'"
+  },
+  {
+    "ID": 5,
+    "Question": "\"Where are you going?\" he asked me. → He asked me where I ______.",
+    "A": "am going",
+    "B": "was going",
+    "C": "go",
+    "D": "have gone",
+    "Answer": "B",
+    "Explain": "Câu hỏi Wh- chuyển thì từ hiện tại tiếp diễn sang quá khứ tiếp diễn.",
+    "Grammar": "Câu gián tiếp – câu hỏi Wh-"
+  },
+  {
+    "ID": 6,
+    "Question": "My mother said, \"Don’t go out late.\" → My mother told me ______ out late.",
+    "A": "to not go",
+    "B": "not go",
+    "C": "not to go",
+    "D": "don’t go",
+    "Answer": "C",
+    "Explain": "Câu mệnh lệnh phủ định trong gián tiếp: 'told me not to...'.",
+    "Grammar": "Câu gián tiếp – mệnh lệnh phủ định"
+  },
+  {
+    "ID": 7,
+    "Question": "\"Please help me,\" she said. → She asked me ______ her.",
+    "A": "help",
+    "B": "to help",
+    "C": "helping",
+    "D": "helped",
+    "Answer": "B",
+    "Explain": "Câu yêu cầu lịch sự → dùng 'ask + O + to V'.",
+    "Grammar": "Câu gián tiếp – yêu cầu lịch sự"
+  },
+  {
+    "ID": 8,
+    "Question": "\"I can swim very fast,\" he said. → He said that he ______ very fast.",
+    "A": "could swim",
+    "B": "can swim",
+    "C": "was swimming",
+    "D": "has swum",
+    "Answer": "A",
+    "Explain": "'Can' chuyển thành 'could' trong câu gián tiếp.",
+    "Grammar": "Câu gián tiếp – động từ khuyết thiếu"
+  },
+  {
+    "ID": 9,
+    "Question": "\"We are going to travel abroad,\" they said. → They said that they ______ to travel abroad.",
+    "A": "are going",
+    "B": "were going",
+    "C": "will go",
+    "D": "went",
+    "Answer": "B",
+    "Explain": "'Be going to' chuyển thành 'was/were going to' trong gián tiếp.",
+    "Grammar": "Câu gián tiếp – dạng 'be going to'"
+  },
+  {
+    "ID": 10,
+    "Question": "\"Did you enjoy the party?\" she asked me. → She asked me if I ______ the party.",
+    "A": "had enjoyed",
+    "B": "have enjoyed",
+    "C": "enjoyed",
+    "D": "enjoy",
+    "Answer": "A",
+    "Explain": "Quá khứ đơn trong câu trực tiếp → quá khứ hoàn thành trong gián tiếp.",
+    "Grammar": "Câu gián tiếp – câu hỏi Yes/No với thì quá khứ"
+  }
+]

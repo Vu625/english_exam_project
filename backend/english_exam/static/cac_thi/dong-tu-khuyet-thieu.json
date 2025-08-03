@@ -1,0 +1,112 @@
+[
+  {
+    "ID": 1,
+    "Question": "You ______ finish your homework before going out.",
+    "A": "should",
+    "B": "can",
+    "C": "might",
+    "D": "would",
+    "Answer": "A",
+    "Explain": "'Should' dùng để đưa ra lời khuyên.",
+    "Grammar": "Động từ khuyết thiếu – should (lời khuyên)"
+  },
+  {
+    "ID": 2,
+    "Question": "He ______ be at home. His car is outside.",
+    "A": "might",
+    "B": "must",
+    "C": "can’t",
+    "D": "shouldn’t",
+    "Answer": "B",
+    "Explain": "'Must' diễn tả suy luận hợp lý trong hiện tại.",
+    "Grammar": "Động từ khuyết thiếu – must (suy luận)"
+  },
+  {
+    "ID": 3,
+    "Question": "You ______ smoke in here. It’s a non-smoking area.",
+    "A": "should",
+    "B": "must",
+    "C": "can",
+    "D": "mustn’t",
+    "Answer": "D",
+    "Explain": "'Mustn’t' dùng để cấm đoán.",
+    "Grammar": "Động từ khuyết thiếu – mustn't (cấm đoán)"
+  },
+  {
+    "ID": 4,
+    "Question": "He ______ speak French fluently when he was young.",
+    "A": "can",
+    "B": "could",
+    "C": "must",
+    "D": "might",
+    "Answer": "B",
+    "Explain": "'Could' diễn tả khả năng trong quá khứ.",
+    "Grammar": "Động từ khuyết thiếu – could (quá khứ)"
+  },
+  {
+    "ID": 5,
+    "Question": "You ______ park here. It’s allowed.",
+    "A": "can",
+    "B": "mustn’t",
+    "C": "shouldn’t",
+    "D": "might",
+    "Answer": "A",
+    "Explain": "'Can' dùng để diễn tả sự cho phép.",
+    "Grammar": "Động từ khuyết thiếu – can (cho phép)"
+  },
+  {
+    "ID": 6,
+    "Question": "She ______ have left early. I saw her 10 minutes ago.",
+    "A": "should",
+    "B": "must",
+    "C": "can’t",
+    "D": "might",
+    "Answer": "C",
+    "Explain": "'Can’t have V3' dùng để suy luận điều không thể xảy ra trong quá khứ.",
+    "Grammar": "Động từ khuyết thiếu – can't have + V3"
+  },
+  {
+    "ID": 7,
+    "Question": "You ______ have told me about the party! I missed it!",
+    "A": "could",
+    "B": "must",
+    "C": "might",
+    "D": "should",
+    "Answer": "D",
+    "Explain": "'Should have V3' dùng để trách móc nhẹ trong quá khứ.",
+    "Grammar": "Động từ khuyết thiếu – should have + V3"
+  },
+  {
+    "ID": 8,
+    "Question": "She ______ call him. He’s waiting for her.",
+    "A": "should",
+    "B": "can’t",
+    "C": "might not",
+    "D": "mustn’t",
+    "Answer": "A",
+    "Explain": "'Should' mang nghĩa nên làm, phù hợp với ngữ cảnh.",
+    "Grammar": "Động từ khuyết thiếu – should"
+  },
+  {
+    "ID": 9,
+    "Question": "We ______ take an umbrella. It looks like rain.",
+    "A": "can",
+    "B": "must",
+    "C": "should",
+    "D": "could",
+    "Answer": "C",
+    "Explain": "'Should' dùng để đưa ra lời khuyên dựa trên tình huống.",
+    "Grammar": "Động từ khuyết thiếu – should (lời khuyên)"
+  },
+  {
+    "ID": 10,
+    "Question": "You ______ be tired. You’ve worked all day.",
+    "A": "can",
+    "B": "might",
+    "C": "must",
+    "D": "should",
+    "Answer": "C",
+    "Explain": "'Must' dùng để suy luận điều gần như chắc chắn.",
+    "Grammar": "Động từ khuyết thiếu – must (suy luận)"
+  }
+]

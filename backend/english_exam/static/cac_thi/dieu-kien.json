@@ -1,0 +1,112 @@
+[
+  {
+    "ID": 1,
+    "Question": "If you heat water to 100°C, it ______.",
+    "A": "boils",
+    "B": "boil",
+    "C": "will boil",
+    "D": "boiled",
+    "Answer": "A",
+    "Explain": "Câu điều kiện loại 0 – nói về sự thật hiển nhiên.",
+    "Grammar": "Câu điều kiện loại 0"
+  },
+  {
+    "ID": 2,
+    "Question": "If it rains tomorrow, we ______ at home.",
+    "A": "stay",
+    "B": "stayed",
+    "C": "will stay",
+    "D": "would stay",
+    "Answer": "C",
+    "Explain": "Câu điều kiện loại 1 – khả năng xảy ra trong tương lai.",
+    "Grammar": "Câu điều kiện loại 1"
+  },
+  {
+    "ID": 3,
+    "Question": "If I were you, I ______ that job.",
+    "A": "take",
+    "B": "would take",
+    "C": "took",
+    "D": "will take",
+    "Answer": "B",
+    "Explain": "Câu điều kiện loại 2 – giả định không có thật ở hiện tại.",
+    "Grammar": "Câu điều kiện loại 2"
+  },
+  {
+    "ID": 4,
+    "Question": "If she had studied harder, she ______ the exam.",
+    "A": "would pass",
+    "B": "passed",
+    "C": "would have passed",
+    "D": "will pass",
+    "Answer": "C",
+    "Explain": "Câu điều kiện loại 3 – điều không có thật trong quá khứ.",
+    "Grammar": "Câu điều kiện loại 3"
+  },
+  {
+    "ID": 5,
+    "Question": "What would you do if you ______ a million dollars?",
+    "A": "win",
+    "B": "won",
+    "C": "had won",
+    "D": "wins",
+    "Answer": "B",
+    "Explain": "Giả định ở hiện tại không có thật => câu điều kiện loại 2.",
+    "Grammar": "Câu điều kiện loại 2"
+  },
+  {
+    "ID": 6,
+    "Question": "If you had left earlier, you ______ the bus.",
+    "A": "would catch",
+    "B": "would have caught",
+    "C": "caught",
+    "D": "will catch",
+    "Answer": "B",
+    "Explain": "Câu điều kiện loại 3 – chỉ điều tiếc nuối trong quá khứ.",
+    "Grammar": "Câu điều kiện loại 3"
+  },
+  {
+    "ID": 7,
+    "Question": "If people don’t recycle, the environment ______ worse.",
+    "A": "will get",
+    "B": "would get",
+    "C": "gets",
+    "D": "get",
+    "Answer": "A",
+    "Explain": "Khả năng có thể xảy ra trong tương lai => điều kiện loại 1.",
+    "Grammar": "Câu điều kiện loại 1"
+  },
+  {
+    "ID": 8,
+    "Question": "If he ______ more careful, he wouldn’t be in trouble now.",
+    "A": "is",
+    "B": "has been",
+    "C": "had been",
+    "D": "were",
+    "Answer": "D",
+    "Explain": "Câu điều kiện loại 2 – giả định hiện tại không có thật.",
+    "Grammar": "Câu điều kiện loại 2"
+  },
+  {
+    "ID": 9,
+    "Question": "If you mix red and blue, you ______ purple.",
+    "A": "get",
+    "B": "got",
+    "C": "will get",
+    "D": "would get",
+    "Answer": "A",
+    "Explain": "Câu điều kiện loại 0 – nói về sự thật khoa học.",
+    "Grammar": "Câu điều kiện loại 0"
+  },
+  {
+    "ID": 10,
+    "Question": "I wouldn’t have been late if I ______ up earlier.",
+    "A": "get",
+    "B": "got",
+    "C": "had got",
+    "D": "have got",
+    "Answer": "C",
+    "Explain": "Câu điều kiện loại 3 – điều không có thật trong quá khứ.",
+    "Grammar": "Câu điều kiện loại 3"
+  }
+]

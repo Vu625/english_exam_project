@@ -95,7 +95,7 @@ function Homepage() {
     return (
         <div style={{ fontFamily: fonts.body, backgroundColor: colors.backgroundLight, minHeight: '100vh', color: colors.textPrimary }}>
             {/* Header / Navigation */}
-            <header style={{
+            {/* <header style={{
                 backgroundColor: colors.white,
                 color: colors.textPrimary,
                 padding: '15px 40px',
@@ -127,7 +127,7 @@ function Homepage() {
                         </li>
                     </ul>
                 </nav>
-            </header>
+            </header> */}
 
             {/* Hero Section */}
             <section style={{

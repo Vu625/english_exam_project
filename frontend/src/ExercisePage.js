@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import ChatbotBubble from './ChatbotBubble'; // <--- Import ChatbotBubble mới
-import ChatWindow from './ChatWindow'; // <--- Import ChatWindow
+import ChatbotBubble from './ChatbotBubble';
+import ChatWindow from './ChatWindow';
 
-function ExercisePage({ type }) {
-    const { topic } = useParams();
+function ExercisePage({ type }) { // 'type' prop is used to differentiate exercise types (grammar, reading, vocabulary)
+    const { topic } = useParams(); // 'topic' will be the grammar topic, reading passage type, or vocabulary topic
     const [questions, setQuestions] = useState([]);
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [selectedAnswer, setSelectedAnswer] = useState(null);
@@ -13,13 +13,12 @@ function ExercisePage({ type }) {
     const [isCorrect, setIsCorrect] = useState(false);
     const [explanation, setExplanation] = useState('');
 
-    // State cho Chat Window
-    const [isChatWindowOpen, setIsChatWindowOpen] = useState(false); // <--- Đổi tên state cho rõ ràng
-    const [chatContextQuestion, setChatContextQuestion] = useState(null); // <--- Đổi tên state
-    const [chatContextGrammarTopic, setChatContextGrammarTopic] = useState(''); // <--- Đổi tên state
+    const [isChatWindowOpen, setIsChatWindowOpen] = useState(false);
+    const [chatContextQuestion, setChatContextQuestion] = useState(null);
+    const [chatContextGrammarTopic, setChatContextGrammarTopic] = useState(''); // This will now also hold vocabulary topic
 
-        useEffect(() => {
-        // Mỗi khi câu hỏi hiện tại thay đổi, đóng cửa sổ chat nếu nó đang mở
+    useEffect(() => {
+        // Close chat window when question changes
         if (isChatWindowOpen) {
             handleCloseChatWindow();
         }
@@ -33,6 +32,8 @@ function ExercisePage({ type }) {
                     apiUrl = `http://localhost:8000/api/exercises/${topic}/`;
                 } else if (type === 'reading') {
                     apiUrl = `http://localhost:8000/api/reading-exercises/${topic}/`;
+                } else if (type === 'vocabulary') { // NEW: Handle vocabulary type
+                    apiUrl = `http://localhost:8000/api/vocabulary-exercises/${topic}/`; // Adjust this API endpoint as per your backend
                 } else {
                     console.error("Loại bài tập không hợp lệ:", type);
                     setQuestions([]);
@@ -52,7 +53,7 @@ function ExercisePage({ type }) {
             }
         };
         fetchQuestions();
-    }, [topic, type]);
+    }, [topic, type]); // Depend on 'type' as well
 
     const currentQuestion = questions[currentQuestionIndex];
 
@@ -87,29 +88,27 @@ function ExercisePage({ type }) {
         }
     };
 
-    // Hàm được gọi từ ChatbotBubble để mở ChatWindow
     const handleOpenChatWindow = (context) => {
         setIsChatWindowOpen(true);
-        // context chứa question và grammarTopic từ ChatbotBubble
         setChatContextQuestion(context.question);
-        setChatContextGrammarTopic(context.grammarTopic);
+        setChatContextGrammarTopic(context.grammarTopic); // Renamed to be more general (topic)
     };
 
-    // Hàm đóng ChatWindow
     const handleCloseChatWindow = () => {
         setIsChatWindowOpen(false);
         setChatContextQuestion(null);
         setChatContextGrammarTopic('');
     };
 
-
     if (questions.length === 0) {
         return <div style={{ textAlign: 'center', marginTop: '50px' }}>Đang tải câu hỏi hoặc không có câu hỏi nào...</div>;
     }
 
+    const pageTitle = type === 'grammar' ? 'Ngữ pháp' : type === 'reading' ? 'Đọc hiểu' : 'Từ vựng';
+
     return (
         <div style={{ maxWidth: '800px', margin: '50px auto', padding: '20px', border: '1px solid #eee', borderRadius: '8px', boxShadow: '0 2px 10px rgba(0,0,0,0.1)' }}>
-            <h2>Bài tập {type === 'grammar' ? 'Ngữ pháp' : 'Đọc hiểu'}: {topic.replace('-', ' ').toUpperCase()}</h2>
+            <h2>Bài tập {pageTitle}: {topic.replace(/-/g, ' ').toUpperCase()}</h2>
             
             <div style={{ marginBottom: '20px', padding: '15px', backgroundColor: '#f9f9f9', borderRadius: '5px' }}>
                 {type === 'reading' ? (
@@ -131,6 +130,7 @@ function ExercisePage({ type }) {
                         return <p style={{ fontWeight: 'bold', fontSize: '1.1em' }}>{currentQuestion.ID}. {currentQuestion.Question}</p>;
                     })()
                 ) : (
+                    // This handles both 'grammar' and 'vocabulary' questions
                     <p style={{ fontWeight: 'bold', fontSize: '1.1em' }}>{currentQuestion.ID}. {currentQuestion.Question}</p>
                 )}
                 
@@ -180,16 +180,14 @@ function ExercisePage({ type }) {
                 </div>
             )}
 
-            {/* Chỉ hiển thị ChatbotBubble khi có câu hỏi và chủ đề để cung cấp ngữ cảnh */}
             {currentQuestion && topic && (
                 <ChatbotBubble 
                     question={currentQuestion} 
-                    grammarTopic={topic} // Dùng topic từ useParams cho ngữ pháp
+                    grammarTopic={topic} // This now passes the general 'topic'
                     onChatOpen={handleOpenChatWindow} 
                 />
             )}
             
-            {/* Component ChatWindow chính */}
             <ChatWindow 
                 isOpen={isChatWindowOpen} 
                 onClose={handleCloseChatWindow} 

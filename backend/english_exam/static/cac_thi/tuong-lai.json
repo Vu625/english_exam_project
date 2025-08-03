@@ -1,0 +1,112 @@
+[
+  {
+    "ID": 1,
+    "Question": "I think it ______ tomorrow.",
+    "A": "rains",
+    "B": "is raining",
+    "C": "will rain",
+    "D": "rain",
+    "Answer": "C",
+    "Explain": "Dựa vào suy đoán không có căn cứ rõ ràng => thì tương lai đơn.",
+    "Grammar": "Thì tương lai đơn"
+  },
+  {
+    "ID": 2,
+    "Question": "Look at those black clouds! It ______ soon.",
+    "A": "will rain",
+    "B": "is going to rain",
+    "C": "rains",
+    "D": "has rained",
+    "Answer": "B",
+    "Explain": "Có dấu hiệu rõ ràng sắp xảy ra => tương lai gần (be going to).",
+    "Grammar": "Tương lai gần"
+  },
+  {
+    "ID": 3,
+    "Question": "By next year, she ______ her degree.",
+    "A": "will have finished",
+    "B": "will finish",
+    "C": "finishes",
+    "D": "is going to finish",
+    "Answer": "A",
+    "Explain": "Hành động hoàn thành trước thời điểm tương lai => tương lai hoàn thành.",
+    "Grammar": "Tương lai hoàn thành"
+  },
+  {
+    "ID": 4,
+    "Question": "This time tomorrow, I ______ on the beach.",
+    "A": "lie",
+    "B": "will lie",
+    "C": "will be lying",
+    "D": "am going to lie",
+    "Answer": "C",
+    "Explain": "Hành động đang diễn ra tại thời điểm tương lai => tương lai tiếp diễn.",
+    "Grammar": "Tương lai tiếp diễn"
+  },
+  {
+    "ID": 5,
+    "Question": "They ______ a new bridge here next year.",
+    "A": "build",
+    "B": "will build",
+    "C": "are building",
+    "D": "has built",
+    "Answer": "B",
+    "Explain": "Dự đoán đơn thuần trong tương lai => tương lai đơn.",
+    "Grammar": "Tương lai đơn"
+  },
+  {
+    "ID": 6,
+    "Question": "Watch out! The cup ______!",
+    "A": "is going to fall",
+    "B": "will fall",
+    "C": "falls",
+    "D": "has fallen",
+    "Answer": "A",
+    "Explain": "Có dấu hiệu rõ ràng sắp xảy ra => be going to.",
+    "Grammar": "Tương lai gần"
+  },
+  {
+    "ID": 7,
+    "Question": "At 8 p.m. tonight, we ______ dinner with our friends.",
+    "A": "have",
+    "B": "will have",
+    "C": "will be having",
+    "D": "are going to have",
+    "Answer": "C",
+    "Explain": "Hành động đang diễn ra tại một thời điểm xác định trong tương lai => tương lai tiếp diễn.",
+    "Grammar": "Tương lai tiếp diễn"
+  },
+  {
+    "ID": 8,
+    "Question": "She ______ the homework before the teacher checks it.",
+    "A": "will do",
+    "B": "will be doing",
+    "C": "will have done",
+    "D": "is going to do",
+    "Answer": "C",
+    "Explain": "Hành động hoàn thành trước thời điểm tương lai => tương lai hoàn thành.",
+    "Grammar": "Tương lai hoàn thành"
+  },
+  {
+    "ID": 9,
+    "Question": "They ______ to visit us next weekend.",
+    "A": "are going",
+    "B": "will go",
+    "C": "are going to come",
+    "D": "go",
+    "Answer": "C",
+    "Explain": "Kế hoạch đã định sẵn => be going to.",
+    "Grammar": "Tương lai gần"
+  },
+  {
+    "ID": 10,
+    "Question": "I promise I ______ you as soon as I arrive.",
+    "A": "will call",
+    "B": "am going to call",
+    "C": "call",
+    "D": "will have called",
+    "Answer": "A",
+    "Explain": "Lời hứa ở tương lai => tương lai đơn.",
+    "Grammar": "Tương lai đơn"
+  }
+]

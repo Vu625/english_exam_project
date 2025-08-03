@@ -1,0 +1,112 @@
+[
+  {
+    "ID": 1,
+    "Question": "If I ______ you, I would take the job.",
+    "A": "am",
+    "B": "were",
+    "C": "was",
+    "D": "be",
+    "Answer": "B",
+    "Explain": "Trong câu điều kiện loại 2, 'I were you' là cấu trúc giả định đặc biệt.",
+    "Grammar": "Câu giả định – If I were you"
+  },
+  {
+    "ID": 2,
+    "Question": "I wish I ______ taller.",
+    "A": "am",
+    "B": "were",
+    "C": "was",
+    "D": "be",
+    "Answer": "B",
+    "Explain": "'I wish' dùng giả định → động từ lùi thì, 'were' dùng cho tất cả chủ ngữ.",
+    "Grammar": "Câu giả định – I wish"
+  },
+  {
+    "ID": 3,
+    "Question": "It’s important that he ______ on time.",
+    "A": "is",
+    "B": "was",
+    "C": "be",
+    "D": "will be",
+    "Answer": "C",
+    "Explain": "Sau 'important that', dùng dạng nguyên thể (subjunctive).",
+    "Grammar": "Câu giả định – mệnh đề danh từ"
+  },
+  {
+    "ID": 4,
+    "Question": "She suggested that he ______ a doctor.",
+    "A": "consults",
+    "B": "consult",
+    "C": "consulted",
+    "D": "consulting",
+    "Answer": "B",
+    "Explain": "Sau 'suggest that', dùng động từ nguyên thể không 'to'.",
+    "Grammar": "Câu giả định – sau suggest"
+  },
+  {
+    "ID": 5,
+    "Question": "They recommended that she ______ the medicine immediately.",
+    "A": "takes",
+    "B": "took",
+    "C": "take",
+    "D": "taking",
+    "Answer": "C",
+    "Explain": "Dùng nguyên mẫu trong mệnh đề giả định sau 'recommend that'.",
+    "Grammar": "Câu giả định – cấu trúc recommend that"
+  },
+  {
+    "ID": 6,
+    "Question": "I wish it ______ snowing.",
+    "A": "stops",
+    "B": "will stop",
+    "C": "would stop",
+    "D": "has stopped",
+    "Answer": "C",
+    "Explain": "'I wish' về hiện tại có thể dùng 'would + V' để thể hiện sự mong muốn.",
+    "Grammar": "Câu giả định – I wish + would"
+  },
+  {
+    "ID": 7,
+    "Question": "It’s necessary that every student ______ the rules.",
+    "A": "follow",
+    "B": "follows",
+    "C": "followed",
+    "D": "is following",
+    "Answer": "A",
+    "Explain": "Sau 'necessary that', dùng động từ nguyên mẫu (subjunctive).",
+    "Grammar": "Câu giả định – sau necessary that"
+  },
+  {
+    "ID": 8,
+    "Question": "If only I ______ more time to finish the exam.",
+    "A": "have",
+    "B": "had",
+    "C": "has",
+    "D": "will have",
+    "Answer": "B",
+    "Explain": "'If only' giống 'I wish', dùng thì quá khứ để giả định hiện tại.",
+    "Grammar": "Câu giả định – If only"
+  },
+  {
+    "ID": 9,
+    "Question": "The doctor insisted that he ______ at home.",
+    "A": "stay",
+    "B": "stays",
+    "C": "stayed",
+    "D": "is staying",
+    "Answer": "A",
+    "Explain": "Sau 'insist that', dùng động từ nguyên mẫu không 'to'.",
+    "Grammar": "Câu giả định – sau insist that"
+  },
+  {
+    "ID": 10,
+    "Question": "She demanded that the report ______ immediately.",
+    "A": "is written",
+    "B": "be written",
+    "C": "was written",
+    "D": "has been written",
+    "Answer": "B",
+    "Explain": "Câu giả định bị động: 'be + V3'.",
+    "Grammar": "Câu giả định – bị động"
+  }
+]
